@@ -22,7 +22,7 @@ Template.problemEdit.events({
 	'click .delete': function(e) {
 		e.preventDefault();
 
-		if(confirm("Delete this problem?")) {
+		if(confirm("Delete this dilemma?")) {
 			var currentProblemId = this._id;
 			Problems.remove(currentProblemId);
 			Router.go('home');

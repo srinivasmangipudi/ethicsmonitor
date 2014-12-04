@@ -8,19 +8,19 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{pathFor 'home'}}">My City My Problem</a>
+				<a class="navbar-brand" href="{{pathFor 'home'}}">Ethics Monitor</a>
 			</div>
 			<div class="collapse navbar-collapse" id="navigation">
 				<ul class="nav navbar-nav">
 					<li class="{{activeRouteClass 'home' 'newProblems'}}">
-						<a href="{{pathFor 'newProblems'}}">New Problems</a>
+						<a href="{{pathFor 'newProblems'}}">New Dilemmas</a>
 					</li>
 					<li class="{{activeRouteClass 'bestProblems'}}">
-						<a href="{{pathFor 'bestProblems'}}">Big Problems</a>
+						<a href="{{pathFor 'bestProblems'}}">Big Dilemmas</a>
 					</li>
 					{{#if currentUser}}
 						<li class="{{activeRouteClass 'problemSubmit'}}">
-							<a href="{{pathFor 'problemSubmit'}}" style="color:limegreen;">Submit Problem</a>
+							<a href="{{pathFor 'problemSubmit'}}" style="color:limegreen;">Submit Dilemma</a>
 						</li>
 						<li class="dropdown">
 							{{> notifications}}
