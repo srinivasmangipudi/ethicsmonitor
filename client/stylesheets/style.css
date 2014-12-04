@@ -186,3 +186,12 @@ body {
  margin-bottom: 5px;
  pointer-events: auto;
 }
+
+#iron-router-progress {
+    background-color : black;
+    box-shadow       : 0 0 5px gray;
+}
+
+#iron-router-progress.spinner:before {
+    border-color : black;
+}
