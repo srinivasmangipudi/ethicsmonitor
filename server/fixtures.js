@@ -1,4 +1,4 @@
-if (Problems.find().count() === 0)
+if (Dilemmas.find().count() === 0)
 {
 	var now = new Date().getTime();
 
@@ -13,7 +13,7 @@ if (Problems.find().count() === 0)
 	});
 	var uma = Meteor.users.findOne(umaId);
 
-	var p1Id = Problems.insert({
+	var p1Id = Dilemmas.insert({
 	title: 'Potholed roads',
 	userId: sri._id,
 	author: sri.profile.name,
@@ -40,7 +40,7 @@ if (Problems.find().count() === 0)
 		body: 'You sure can Tom!'
 	});
 
-	Problems.insert({
+	Dilemmas.insert({
 	title: 'Garbage in my neighbourhood not being collected',
 	url: 'http://www.wsbtv.com/news/news/local/trash-piles-local-apartment-complex-despite-tenant/nh2Mr/',
 	userId: uma._id,
@@ -51,7 +51,7 @@ if (Problems.find().count() === 0)
 	votes: 0
 	});
 
-	Problems.insert({
+	Dilemmas.insert({
 	title: 'Traffic congestion increasing pollution',
 	url: 'http://www.coventrytelegraph.net/news/coventry-news/coventrys-bus-lanes-could-scrapped-8055383',
 	userId: sri._id,
@@ -64,8 +64,8 @@ if (Problems.find().count() === 0)
 
 	for(var i=0; i<10; i++)
 	{
-		Problems.insert({
-			title: "Test Problem #" + i,
+		Dilemmas.insert({
+			title: "Test Dilemma #" + i,
 			author: sri.profile.name,
 			userId: sri._id,
 			url: 'http://google.com/?q=test-' + i,

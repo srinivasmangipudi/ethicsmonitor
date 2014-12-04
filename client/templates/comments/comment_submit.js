@@ -22,7 +22,7 @@ Template.commentSubmit.events({
 
 		var comment = {
 			body: $body.val(),
-			problemId: template.data._id
+			dilemmaId: template.data._id
 		};
 
 		var errors = {};

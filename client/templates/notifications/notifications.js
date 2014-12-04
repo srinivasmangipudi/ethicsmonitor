@@ -9,7 +9,7 @@ Template.notifications.helpers({
 
 Template.notificationItem.helpers({
 	notificationProblemPath: function() {
-		return Router.routes.problemPage.path({_id: this.problemId});
+		return Router.routes.dilemmaPage.path({_id: this.dilemmaId});
 	}
 });
 

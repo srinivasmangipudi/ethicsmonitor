@@ -1,20 +1,20 @@
-Template.problemEdit.events({
+Template.dilemmaEdit.events({
 	'submit form': function(e) {
 		e.preventDefault();
 
-		var currentProblemId = this._id;
+		var currentDilemmaId = this._id;
 
-		var problemProperties = {
+		var dilemmaProperties = {
 			url: $(e.target).find('[name=url]').val(),
 			title: $(e.target).find('[name=title]').val()
 		};
 
-		Problems.update(currentProblemId, {$set: problemProperties}, function(error) {
+		Dilemmas.update(currentDilemmaId, {$set: dilemmaProperties}, function(error) {
 			if(error) {
 				//display the error to the user
 				alert(error.reason);
 			} else {
-				Router.go('problemPage', {_id: currentProblemId});
+				Router.go('dilemmaPage', {_id: currentDilemmaId});
 			}
 		});
 	},
@@ -23,8 +23,8 @@ Template.problemEdit.events({
 		e.preventDefault();
 
 		if(confirm("Delete this dilemma?")) {
-			var currentProblemId = this._id;
-			Problems.remove(currentProblemId);
+			var currentDilemmaId = this._id;
+			Dilemmas.remove(currentDilemmaId);
 			Router.go('home');
 		}
 	}

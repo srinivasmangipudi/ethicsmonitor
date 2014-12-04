@@ -1,8 +1,8 @@
-var PROBLEM_HEIGHT = 80;
+var DILEMMA_HEIGHT = 80;
 var Positions = new Meteor.Collection(null);
 
-Template.problemItem.helpers({
-	ownProblem: function() {
+Template.dilemmaItem.helpers({
+	ownDilemma: function() {
 		return this.userId === Meteor.userId();
 	},
 
@@ -24,32 +24,32 @@ Template.problemItem.helpers({
 	},
 
 	attributes: function() {
-		var problem = _.extend({}, Positions.findOne({problemId: this._id}), this);
-		var newPosition = problem._rank * PROBLEM_HEIGHT;
+		var dilemma = _.extend({}, Positions.findOne({dilemmaId: this._id}), this);
+		var newPosition = dilemma._rank * DILEMMA_HEIGHT;
 		var attributes = {};
 
-		if(_.isUndefined(problem.position))
+		if(_.isUndefined(dilemma.position))
 		{
-			attributes.class = "problem invisible";
+			attributes.class = "dilemma invisible";
 		}
 		else
 		{
-			var delta = problem.position - newPosition;
+			var delta = dilemma.position - newPosition;
 			attributes.style = "top: " + delta + "px";
 
 			if(delta === 0)
-				attributes.class = "problem animate";
+				attributes.class = "dilemma animate";
 		}
 
 		Meteor.setTimeout(function(){
-			Positions.upsert({problemId: problem._id}, {$set: {position: newPosition}});
+			Positions.upsert({dilemmaId: dilemma._id}, {$set: {position: newPosition}});
 		});
 
 		return attributes;
 	}
 });
 
-Template.problemItem.events({
+Template.dilemmaItem.events({
 	'click .upvotable': function(e) {
 		e.preventDefault();
 		Meteor.call('upvote', this._id);

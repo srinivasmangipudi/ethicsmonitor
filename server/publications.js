@@ -1,19 +1,19 @@
-Meteor.publish('problems', function(options) {
+Meteor.publish('dilemmas', function(options) {
 	check(options, {
 		sort: Object,
 		limit: Number
 	});
-	return Problems.find({}, options);
+	return Dilemmas.find({}, options);
 });
 
-Meteor.publish('singleProblem', function(id) {
+Meteor.publish('singleDilemma', function(id) {
 	check(id, String);
-	return Problems.find(id);
+	return Dilemmas.find(id);
 });
 
-Meteor.publish('comments', function(problemId) {
-	check(problemId, String);
-	return Comments.find({problemId: problemId});
+Meteor.publish('comments', function(dilemmaId) {
+	check(dilemmaId, String);
+	return Comments.find({dilemmaId: dilemmaId});
 });
 
 Meteor.publish('notifications', function() {

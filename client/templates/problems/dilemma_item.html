@@ -1,0 +1,19 @@
+<template name="dilemmaItem">
+	<div class="dilemma" {{attributes}}>
+		<a href='#' class="upvote btn btn-default {{upvotedClass}}" role="button">
+			<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+		</a>
+		<div class="dilemma-content">
+			<h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
+			<p>
+				{{pluralize votes "Vote"}},
+				submitted by <b>{{author}}</b>,
+				<a href="{{pathFor 'dilemmaPage'}}">{{commentsCount}} comments</a>
+			</p>
+		</div>
+
+		<a href="{{pathFor 'dilemmaPage'}}" class="discuss btn btn-default">Discuss</a>
+
+		{{#if ownDilemma}}<a href="{{pathFor 'dilemmaEdit'}}" class="edit btn btn-default" style="color:limegreen;">Edit</a>{{/if}}
+	</div>
+</template>
