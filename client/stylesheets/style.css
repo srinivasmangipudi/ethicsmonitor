@@ -75,6 +75,9 @@ body {
  display: inline-block;
  margin-right: 5px; }
 
+ .dilemma .dilemma-content a {
+ color: #33CCFF; }
+
  .dilemma .dilemma-content h3 span {
  font-weight: normal;
  font-size: 14px;
