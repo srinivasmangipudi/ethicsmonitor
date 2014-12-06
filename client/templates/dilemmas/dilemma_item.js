@@ -2,10 +2,7 @@ var DILEMMA_HEIGHT = 80;
 var Positions = new Meteor.Collection(null);
 
 Template.dilemmaItem.helpers({
-	ownDilemma: function() {
-		return this.userId === Meteor.userId();
-	},
-
+	
 	domain: function() {
 		var a = document.createElement('a');
 		a.href = this.url;
