@@ -15,9 +15,10 @@ if (Dilemmas.find().count() === 0)
 
 	var p1Id = Dilemmas.insert({
 	title: 'Potholed roads',
+	message: 'this is too bad',
 	userId: sri._id,
 	author: sri.profile.name,
-	url: 'http://timesofindia.indiatimes.com/city/chennai/Potholed-roads-pose-a-deadly-threat-to-seniors/articleshow/44966477.cms',
+	//url: 'http://timesofindia.indiatimes.com/city/chennai/Potholed-roads-pose-a-deadly-threat-to-seniors/articleshow/44966477.cms',
 	submitted: now - 7 * 3600 * 1000,
 	commentsCount: 2,
 	upvoters: [],
@@ -42,7 +43,8 @@ if (Dilemmas.find().count() === 0)
 
 	Dilemmas.insert({
 	title: 'Garbage in my neighbourhood not being collected',
-	url: 'http://www.wsbtv.com/news/news/local/trash-piles-local-apartment-complex-despite-tenant/nh2Mr/',
+	message: 'dirty dirty dirty',
+	//url: 'http://www.wsbtv.com/news/news/local/trash-piles-local-apartment-complex-despite-tenant/nh2Mr/',
 	userId: uma._id,
 	author: uma.profile.name,
 	submitted: now - 7 * 3600 * 1000,
@@ -53,7 +55,8 @@ if (Dilemmas.find().count() === 0)
 
 	Dilemmas.insert({
 	title: 'Traffic congestion increasing pollution',
-	url: 'http://www.coventrytelegraph.net/news/coventry-news/coventrys-bus-lanes-could-scrapped-8055383',
+	message: 'smoking poluutants',
+	//url: 'http://www.coventrytelegraph.net/news/coventry-news/coventrys-bus-lanes-could-scrapped-8055383',
 	userId: sri._id,
 	author: sri.profile.name,
 	submitted: now - 7 * 3600 * 1000,
@@ -66,9 +69,10 @@ if (Dilemmas.find().count() === 0)
 	{
 		Dilemmas.insert({
 			title: "Test Dilemma #" + i,
+			message: 'test message #' + i,
 			author: sri.profile.name,
 			userId: sri._id,
-			url: 'http://google.com/?q=test-' + i,
+			//url: 'http://google.com/?q=test-' + i,
 			submitted: now - i * 3600 * 1000,
 			commentsCount: 0,
 			upvoters: [],
