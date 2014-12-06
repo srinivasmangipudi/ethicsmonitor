@@ -1,7 +1,10 @@
 <template name="dilemmaItemDetail">
 	<div class="dilemma" {{attributes}}>
 		<div class="dilemma-content">
-			<h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
+			<h3>{{title}}</h3>
+			<p>
+				{{message}}
+			</p>
 			<p>
 				{{pluralize votes "Vote"}},
 				submitted by <b>{{author}}</b>,

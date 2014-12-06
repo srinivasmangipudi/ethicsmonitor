@@ -16,24 +16,18 @@ Template.dilemmaSubmit.events({
 		e.preventDefault();
 
 		var dilemma = {
-			url: $(e.target).find('[name=url]').val(),
 			title: $(e.target).find('[name=title]').val(),
 			message: $(e.target).find('[name=message]').val()
 		};
 
 		var errors = validateDilemma(dilemma);
-		if(errors.title || errors.url || errors.message)
+		if(errors.title || errors.message)
 			return Session.set('dilemmaSubmitErrors', errors);
 
 		Meteor.call('dilemmaInsert', dilemma, function(error, result)
 		{
 			if(error)
 				return throwError(error.reason);
-
-			if(result.dilemmaExists)
-			{
-				throwError("This link has already been posted! Please discuss it.");
-			}
 
 			Router.go('dilemmaPage', {_id: result._id});
 		});
