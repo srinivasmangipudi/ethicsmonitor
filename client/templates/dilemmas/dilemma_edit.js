@@ -1,3 +1,16 @@
+Template.dilemmaEdit.created = function() {
+	Session.set('dilemmaEditErrors', {});
+}
+
+Template.dilemmaEdit.helpers({
+	errorMessage: function(field) {
+		return Session.get('dilemmaEditErrors')[field];
+	},
+	errorClass: function(field) {
+		return !!Session.get('dilemmaEditErrors')[field] ? 'has-error' : '';
+	}
+});
+
 Template.dilemmaEdit.events({
 	'submit form': function(e) {
 		e.preventDefault();
@@ -5,9 +18,13 @@ Template.dilemmaEdit.events({
 		var currentDilemmaId = this._id;
 
 		var dilemmaProperties = {
-			url: $(e.target).find('[name=url]').val(),
-			title: $(e.target).find('[name=title]').val()
+			title: $(e.target).find('[name=title]').val(),
+			message: $(e.target).find('[name=message]').val()
 		};
+
+		var errors = validateDilemma(dilemmaProperties);
+		if(errors.title || errors.message)
+			return Session.set('dilemmaEditErrors', errors);
 
 		Dilemmas.update(currentDilemmaId, {$set: dilemmaProperties}, function(error) {
 			if(error) {

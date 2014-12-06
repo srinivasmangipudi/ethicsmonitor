@@ -2,12 +2,12 @@ var DILEMMA_HEIGHT = 80;
 var Positions = new Meteor.Collection(null);
 
 Template.dilemmaItem.helpers({
-	
-	domain: function() {
+
+	/*domain: function() {
 		var a = document.createElement('a');
 		a.href = this.url;
 		return a.hostname;
-	},
+	},*/
 
 	upvotedClass: function() {
 		var userId = Meteor.userId();
