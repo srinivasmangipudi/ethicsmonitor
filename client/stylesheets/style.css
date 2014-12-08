@@ -29,6 +29,9 @@ body {
 #spinner {
  height: 300px; }
 
+.btn-info {
+	color: rgb(79, 80, 94);
+}
 .dilemma {
  /* For modern browsers */
  /* For IE 6/7 (trigger hasLayout) */
@@ -115,6 +118,21 @@ body {
 
 .opinion {
 	margin-bottom: 5px;
+}
+.opinion-yes:hover {
+	background-color: lightgreen;
+}
+
+.opinion-no:hover {
+	background-color: red;
+}
+
+.comment-opinion-yes {
+	border: 1px solid green;
+}
+
+.comment-opinion-no {
+	border: 1px solid red;
 }
 
  .comments li h4 {
