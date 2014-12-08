@@ -66,6 +66,9 @@ body {
  .dilemma .dilemma-content {
  float: left; }
 
+.dilemma .dilemma-detail-content {
+ text-align: center; }
+
  .dilemma .dilemma-content h3 {
  margin: 0;
  line-height: 1.4;
@@ -101,6 +104,10 @@ body {
 .comments {
  list-style-type: none;
  margin: 0; }
+
+.opinion {
+	margin-bottom: 5px;
+}
 
  .comments li h4 {
  font-size: 16px;
