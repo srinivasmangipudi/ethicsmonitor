@@ -54,18 +54,20 @@ Template.commentSubmit.events({
 				throwError(error.reason);
 			} else {
 				$body.val('');
+				Session.set('commentSubmitErrors', {});
 			}
 		});
 	},
 
 	'click .opinion-yes': function(e) {
 		e.preventDefault();
+		Session.set('commentSubmitErrors', {});
 		return Session.set('commentOpinion', "yes");
 	},
 
 	'click .opinion-no': function(e) {
 		e.preventDefault();
-
+		Session.set('commentSubmitErrors', {});
 		return Session.set('commentOpinion', "no");
 	}
 });
