@@ -2,6 +2,15 @@
   <form name="comment" class="comment-form form">
     <div class="form-group {{errorClass 'body'}}">
         <div class="controls">
+
+            <a href='#' class="opinion opinion-yes btn {{opinionYesClass}}" role="button">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </a>
+
+            <a href='#' class="opinion opinion-no btn {{opinionNoClass}}" role="button">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </a>
+
             <label for="body">Comment on this Dilemma</label>
             <textarea name="body" id="body" class="form-control" rows="3"></textarea>
             <span class="help-block">{{errorMessage 'body'}}</span>
