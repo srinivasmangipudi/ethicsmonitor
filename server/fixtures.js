@@ -18,7 +18,7 @@ if (Dilemmas.find().count() === 0)
 	message: 'this is too bad',
 	userId: sri._id,
 	author: sri.profile.name,
-	submitted: now - 7 * 3600 * 1000,
+	submitted: new Date(),
 	commentsCount: 2,
 	upvoters: [],
 	votes: 0
@@ -28,7 +28,7 @@ if (Dilemmas.find().count() === 0)
 		problemId: p1Id,
 		userId: uma._id,
 		author: uma.profile.name,
-		submitted: now - 5 * 3600 * 1000,
+		submitted: new Date(),
 		body: 'Interesting project Sacha, can I get involved?'
 	});
 
@@ -36,7 +36,7 @@ if (Dilemmas.find().count() === 0)
 		problemId: p1Id,
 		userId: sri._id,
 		author: sri.profile.name,
-		submitted: now - 3 * 3600 * 1000,
+		submitted: new Date(),
 		body: 'You sure can Tom!'
 	});
 
@@ -45,7 +45,7 @@ if (Dilemmas.find().count() === 0)
 	message: 'dirty dirty dirty',
 	userId: uma._id,
 	author: uma.profile.name,
-	submitted: now - 7 * 3600 * 1000,
+	submitted: new Date(),
 	commentsCount: 0,
 	upvoters: [],
 	votes: 0
@@ -56,7 +56,7 @@ if (Dilemmas.find().count() === 0)
 	message: 'smoking poluutants',
 	userId: sri._id,
 	author: sri.profile.name,
-	submitted: now - 7 * 3600 * 1000,
+	submitted: new Date(),
 	commentsCount: 0,
 	upvoters: [],
 	votes: 0
@@ -69,7 +69,7 @@ if (Dilemmas.find().count() === 0)
 			message: 'test message #' + i,
 			author: sri.profile.name,
 			userId: sri._id,
-			submitted: now - i * 3600 * 1000,
+			submitted: new Date(),
 			commentsCount: 0,
 			upvoters: [],
 			votes: 0
