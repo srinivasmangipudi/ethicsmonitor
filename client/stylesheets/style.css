@@ -101,6 +101,14 @@ body {
  margin-top: 7px; 
  margin-right: 5px;}
 
+.submit {
+	width: 100px;
+}
+
+.cancel {
+	width: 100px;
+}
+
 .comments {
  list-style-type: none;
  margin: 0; }

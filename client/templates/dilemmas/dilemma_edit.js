@@ -36,6 +36,11 @@ Template.dilemmaEdit.events({
 		});
 	},
 
+	'click .cancel': function(e) {
+		e.preventDefault();
+		Router.go('dilemmaPage', {_id: this._id});
+	},
+
 	'click .delete': function(e) {
 		e.preventDefault();
 
