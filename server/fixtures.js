@@ -25,19 +25,21 @@ if (Dilemmas.find().count() === 0)
 	});
 
 	Comments.insert({
-		problemId: p1Id,
+		dilemmaId: p1Id,
 		userId: uma._id,
 		author: uma.profile.name,
 		submitted: new Date(),
-		body: 'Interesting project Sacha, can I get involved?'
+		body: 'Interesting project Sacha, can I get involved?',
+		opinion: "yes"
 	});
 
 	Comments.insert({
-		problemId: p1Id,
+		dilemmaId: p1Id,
 		userId: sri._id,
 		author: sri.profile.name,
 		submitted: new Date(),
-		body: 'You sure can Tom!'
+		body: 'You sure can Tom!',
+		opinion: "no"
 	});
 
 	Dilemmas.insert({
