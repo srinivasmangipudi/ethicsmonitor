@@ -27,7 +27,8 @@ Template.commentSubmit.helpers({
 
 	myComment: function() {
 		var myComment = Comments.findOne({userId: Meteor.userId()});
-		if(myComment) {
+
+		if(typeof myComment !== "undefined") {
 			var opinion = myComment.opinion;
 
 			if(opinion === "yes")
