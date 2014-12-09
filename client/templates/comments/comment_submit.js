@@ -23,7 +23,40 @@ Template.commentSubmit.helpers({
 			return 'btn-danger active';
 		else
 			return 'btn-default';
-	}
+	},
+
+	myComment: function() {
+		var myComment = Comments.findOne({userId: Meteor.userId()});
+		if(myComment) {
+			var opinion = myComment.opinion;
+
+			if(opinion === "yes")
+				Session.set('commentOpinion', "yes");
+			else if(opinion === "no")
+				Session.set('commentOpinion', "no");
+
+			Session.set('commentBtnState', "Update Comment");
+			Session.set('commentInfoText', "Your opinion");
+		
+			return myComment.body;
+		}
+		else {
+			Session.set('commentInfoText', "What's your opinion?");
+			Session.set('commentBtnState', "Add Comment");
+
+			return '';
+		}
+			
+	},
+
+	commentInfoText: function() {
+		return Session.get('commentInfoText');
+	},
+
+	commentBtnState: function() {
+		return Session.get('commentBtnState');
+	},
+	
 });
 
 Template.commentSubmit.events({
