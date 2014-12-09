@@ -37,12 +37,14 @@ Template.commentSubmit.helpers({
 
 			Session.set('commentBtnState', "Update Comment");
 			Session.set('commentInfoText', "Your opinion");
-		
+			Session.set('myCommentId', myComment._id);
+
 			return myComment.body;
 		}
 		else {
 			Session.set('commentInfoText', "What's your opinion?");
 			Session.set('commentBtnState', "Add Comment");
+			Session.set('myCommentId', '');
 
 			return '';
 		}
@@ -66,6 +68,7 @@ Template.commentSubmit.events({
 		var $body = $(e.target).find('[name=body]');
 
 		var comment = {
+			_id: Session.get('myCommentId'),
 			body: $body.val(),
 			dilemmaId: template.data._id,
 			opinion: Session.get('commentOpinion')
@@ -82,14 +85,29 @@ Template.commentSubmit.events({
 			return Session.set('commentSubmitErrors', errors);
 		}
 
-		Meteor.call('commentInsert', comment, function(error, commentId) {
-			if(error) {
-				throwError(error.reason);
-			} else {
-				$body.val('');
-				Session.set('commentSubmitErrors', {});
-			}
-		});
+		if(comment._id === '')
+		{
+			Meteor.call('commentInsert', comment, function(error, commentId) {
+				if(error) {
+					throwError(error.reason);
+				} else {
+					//$body.val('');
+					Session.set('commentSubmitErrors', {});
+				}
+			});			
+		}
+		else
+		{
+			Meteor.call('commentUpdate', comment, function(error, commentId) {
+				if(error) {
+					throwError(error.reason);
+				} else {
+					//$body.val('');
+					Session.set('commentSubmitErrors', {});
+				}
+			});
+		}
+		
 	},
 
 	'click .opinion-yes': function(e) {
