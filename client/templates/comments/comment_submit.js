@@ -69,7 +69,6 @@ Template.commentSubmit.events({
 		var $body = $(e.target).find('[name=body]');
 
 		var comment = {
-			_id: Session.get('myCommentId'),
 			body: $body.val(),
 			dilemmaId: template.data._id,
 			opinion: Session.get('commentOpinion')
@@ -86,7 +85,9 @@ Template.commentSubmit.events({
 			return Session.set('commentSubmitErrors', errors);
 		}
 
-		if(comment._id === '')
+		var commentId = Session.get('myCommentId');
+
+		if(commentId === '')
 		{
 			Meteor.call('commentInsert', comment, function(error, commentId) {
 				if(error) {
@@ -95,10 +96,11 @@ Template.commentSubmit.events({
 					//$body.val('');
 					Session.set('commentSubmitErrors', {});
 				}
-			});			
+			});
 		}
 		else
 		{
+			comment._id = commentId;
 			Meteor.call('commentUpdate', comment, function(error, commentId) {
 				if(error) {
 					throwError(error.reason);
