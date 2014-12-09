@@ -13,9 +13,10 @@
 				{{message}}
 			</p>
 			<p>
-				{{pluralize votes "Vote"}},
-				submitted by <b>{{author}}</b>,
-				<a href="{{pathFor 'dilemmaPage'}}">{{commentsCount}} comments</a>
+				submitted by <b>{{author}}</b>
+			</p>
+			<p>
+				{{pluralize commentsCount "Comment"}}
 			</p>
 		</div>
 	</div>
