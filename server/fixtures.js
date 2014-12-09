@@ -19,7 +19,8 @@ if (Dilemmas.find().count() === 0)
 	userId: sri._id,
 	author: sri.profile.name,
 	submitted: new Date(),
-	commentsCount: 2,
+	commentsYesCount: 1,
+	commentsNoCount: 1,
 	upvoters: [],
 	votes: 0
 	});
@@ -48,7 +49,8 @@ if (Dilemmas.find().count() === 0)
 	userId: uma._id,
 	author: uma.profile.name,
 	submitted: new Date(),
-	commentsCount: 0,
+	commentsYesCount: 0,
+	commentsNoCount: 0,
 	upvoters: [],
 	votes: 0
 	});
@@ -59,7 +61,8 @@ if (Dilemmas.find().count() === 0)
 	userId: sri._id,
 	author: sri.profile.name,
 	submitted: new Date(),
-	commentsCount: 0,
+	commentsYesCount: 0,
+	commentsNoCount: 0,
 	upvoters: [],
 	votes: 0
 	});
@@ -72,7 +75,8 @@ if (Dilemmas.find().count() === 0)
 			author: sri.profile.name,
 			userId: sri._id,
 			submitted: new Date(),
-			commentsCount: 0,
+			commentsYesCount: 0,
+			commentsNoCount: 0,
 			upvoters: [],
 			votes: 0
 		});

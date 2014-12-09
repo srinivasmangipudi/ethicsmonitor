@@ -8,7 +8,7 @@
 			<p>
 				{{pluralize votes "Vote"}},
 				submitted by <b>{{author}}</b>,
-				<a href="{{pathFor 'dilemmaPage'}}">{{commentsCount}} comments</a>
+				<a href="{{pathFor 'dilemmaPage'}}">{{pluralize totalCommentsCount "Comment"}}</a>
 			</p>
 		</div>
 

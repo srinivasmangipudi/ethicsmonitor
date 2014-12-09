@@ -13,7 +13,7 @@ Meteor.publish('singleDilemma', function(id) {
 
 Meteor.publish('comments', function(dilemmaId) {
 	check(dilemmaId, String);
-	return Comments.find({dilemmaId: dilemmaId});
+	return Comments.find({dilemmaId: dilemmaId}, {sort: {submitted: -1}});
 });
 
 Meteor.publish('notifications', function() {

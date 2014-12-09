@@ -7,6 +7,11 @@ UI.registerHelper('pluralize', function(n, thing) {
 	}
 });
 
+UI.registerHelper('totalCommentsCount', function() {
+	return this.commentsYesCount + this.commentsNoCount;
+});
+
 UI.registerHelper('ownDilemma', function() {
 	return this.userId === Meteor.userId();
 });
+
