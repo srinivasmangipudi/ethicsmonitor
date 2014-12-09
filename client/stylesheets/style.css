@@ -119,6 +119,15 @@ body {
 .opinion {
 	margin-bottom: 5px;
 }
+
+.opinion-summary-yes {
+	color: lightgreen;
+}
+
+.opinion-summary-no {
+	color: lightcoral;
+}
+
 .opinion-yes:hover {
 	background-color: lightgreen;
 }

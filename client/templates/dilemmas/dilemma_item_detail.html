@@ -18,6 +18,14 @@
 			<p>
 				{{pluralize totalCommentsCount "Comment"}}
 			</p>
+
+			<p>
+    			<span class="glyphicon glyphicon-ok opinion-summary-yes" aria-hidden="true"></span>
+    			{{commentsYesCount}}
+
+    			<span class="glyphicon glyphicon-remove opinion-summary-no" aria-hidden="true"></span>
+    			{{commentsNoCount}}	        	
+			</p>
 		</div>
 	</div>
 </template>
