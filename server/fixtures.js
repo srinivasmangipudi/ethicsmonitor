@@ -81,4 +81,34 @@ if (Dilemmas.find().count() === 0)
 			votes: 0
 		});
 	}
+
+	anyDilemma = Dilemmas.insert({
+	title: 'Comment Testing Dilemma',
+	message: 'lot of comments',
+	userId: sri._id,
+	author: sri.profile.name,
+	submitted: new Date(),
+	commentsYesCount: 20,
+	commentsNoCount: 0,
+	upvoters: [],
+	votes: 0
+	});
+
+	anyDilemma = Dilemmas.findOne({title:"Comment Testing Dilemma"});
+	for(var i=0; i<20; i++)
+	{
+		var uId = Meteor.users.insert({
+			profile: {name: "Test User #" + i}
+		});
+
+		Comments.insert({
+			dilemmaId: anyDilemma._id,
+			userId: uId,
+			author: "Test User #" + i,
+			submitted: new Date(),
+			body: 'test test comment#' + i,
+			opinion: "yes"
+		});
+	}
+	
 }
