@@ -138,10 +138,27 @@ body {
 
 .comment-opinion-yes {
 	border: 1px solid green;
+	background-color: lightgreen;
 }
 
 .comment-opinion-no {
 	border: 1px solid red;
+	background-color: lightcoral;
+}
+
+.comments-box-format {
+	display: table; 
+	height: 100%; 
+	overflow: hidden;
+}
+
+.comments-opinion {
+	display: table-cell; 
+	vertical-align: middle;
+}
+
+.comments-comment {
+	margin-left:10px;
 }
 
  .comments li h4 {

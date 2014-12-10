@@ -36,7 +36,7 @@ Template.commentSubmit.helpers({
 			else if(opinion === "no")
 				Session.set('commentOpinion', "no");
 
-			Session.set('commentBtnState', "Update Comment");
+			Session.set('commentBtnState', "Update");
 			Session.set('commentInfoText', "Your opinion");
 			Session.set('myCommentId', myComment._id);
 
@@ -44,7 +44,7 @@ Template.commentSubmit.helpers({
 		}
 		else {
 			Session.set('commentInfoText', "What's your opinion?");
-			Session.set('commentBtnState', "Add Comment");
+			Session.set('commentBtnState', "Submit");
 			Session.set('myCommentId', '');
 
 			return '';

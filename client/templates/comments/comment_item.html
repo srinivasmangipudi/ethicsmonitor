@@ -1,15 +1,22 @@
 <template name="commentItem">
 	<li>
-		<h4>
-			{{#if myOpinion}}
-	            <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green"></span>
-	        {{else}}
-	            <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:red"></span>
-	        {{/if}}
-
-			<span class="author">{{author}}</span>
-			<span class="date">on {{submittedText}}</span>
-		</h4>
-		<p>{{body}}</p>
+	<div class="comments-box-format">
+	    <div class="comments-opinion">
+	       <div>
+				{{#if myOpinion}}
+		            <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:lightgreen"></span>
+		        {{else}}
+		            <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:lightcoral"></span>
+		        {{/if}}
+	       </div>
+	    </div>
+		<div class="comments-comment">
+			<h4>
+				<span class="author">{{author}}</span>
+				<span class="date">on {{submittedText}}</span>
+			</h4>
+			<p>{{body}}</p>
+		</div>
+   </div>
 	</li>
 </template>
