@@ -1,6 +1,6 @@
 <template name="dilemmaPage">
 	{{> dilemmaItemDetail}}
-
+	
 	{{#if currentUser}}
 		{{> commentSubmit}}
 	{{else}}
@@ -13,4 +13,11 @@
 		{{/each}}
 	</ul>
 
+	{{#if nextPath}}
+		<a class="load-more" href="{{nextPath}}">Load More</a>
+	{{else}}
+		{{#unless ready}}
+			{{> spinner}}
+		{{/unless}}
+	{{/if}}
 </template>

@@ -68,6 +68,7 @@ Template.commentSubmit.events({
 
 		var $body = $(e.target).find('[name=body]');
 
+		//console.log(template.data);
 		var comment = {
 			body: $body.val(),
 			dilemmaId: template.data._id,
