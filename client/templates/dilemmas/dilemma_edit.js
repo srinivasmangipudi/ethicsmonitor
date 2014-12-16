@@ -26,12 +26,12 @@ Template.dilemmaEdit.events({
 		if(errors.title || errors.message)
 			return Session.set('dilemmaEditErrors', errors);
 
-		//use slingshot to upload the file first
-		var uploader = new Slingshot.Upload("myFileUploads");
-
 		var imgUpload = document.getElementById('dilemmaImageInput').files[0];
 		if(typeof imgUpload)
 		{
+			//use slingshot to upload the file first
+			var uploader = new Slingshot.Upload("myFileUploads");
+			
 			uploader.send(imgUpload, function (error, downloadUrl) {
 					console.log("downloadURL:" + downloadUrl);
 

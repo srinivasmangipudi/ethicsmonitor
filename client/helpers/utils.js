@@ -14,4 +14,3 @@ UI.registerHelper('totalCommentsCount', function() {
 UI.registerHelper('ownDilemma', function() {
 	return this.userId === Meteor.userId();
 });
-

@@ -24,10 +24,6 @@ Template.dilemmaSubmit.events({
 		if(errors.title || errors.message)
 			return Session.set('dilemmaSubmitErrors', errors);
 
-		//use slingshot to upload the file first
-		var uploader = new Slingshot.Upload("myFileUploads");
-		//console.log("file to be uploaded: " + document.getElementById('dilemmaImageInput').files[0]);
-
 		Meteor.call('dilemmaInsert', dilemma, function(error, result)
 		{
 			if(error)
@@ -37,6 +33,9 @@ Template.dilemmaSubmit.events({
 
 			if(typeof imgUpload)
 			{
+				//use slingshot to upload the file first
+				var uploader = new Slingshot.Upload("myFileUploads");
+
 				uploader.send(imgUpload, function (error, downloadUrl) {
 					console.log("downloadURL:" + downloadUrl);
 
