@@ -26,14 +26,45 @@ Template.dilemmaEdit.events({
 		if(errors.title || errors.message)
 			return Session.set('dilemmaEditErrors', errors);
 
-		Dilemmas.update(currentDilemmaId, {$set: dilemmaProperties}, function(error) {
-			if(error) {
-				//display the error to the user
-				alert(error.reason);
-			} else {
-				Router.go('dilemmaPage', {_id: currentDilemmaId});
-			}
-		});
+		//use slingshot to upload the file first
+		var uploader = new Slingshot.Upload("myFileUploads");
+
+		var imgUpload = document.getElementById('dilemmaImageInput').files[0];
+		if(typeof imgUpload)
+		{
+			uploader.send(imgUpload, function (error, downloadUrl) {
+					console.log("downloadURL:" + downloadUrl);
+
+					if(error)
+						return throwError(error.reason);
+
+					var dilemmaProperties = {
+						title: $(e.target).find('[name=title]').val(),
+						message: $(e.target).find('[name=message]').val(),
+						imageUrl: downloadUrl
+					};
+
+					Dilemmas.update(currentDilemmaId, {$set: dilemmaProperties}, function(error) {
+						if(error) {
+							//display the error to the user
+							alert(error.reason);
+						} else {
+							Router.go('dilemmaPage', {_id: currentDilemmaId});
+						}
+					});
+				});
+		}
+		else
+		{
+			Dilemmas.update(currentDilemmaId, {$set: dilemmaProperties}, function(error) {
+				if(error) {
+					//display the error to the user
+					alert(error.reason);
+				} else {
+					Router.go('dilemmaPage', {_id: currentDilemmaId});
+				}
+			});			
+		}
 	},
 
 	'click .cancel': function(e) {
@@ -45,6 +76,7 @@ Template.dilemmaEdit.events({
 		e.preventDefault();
 
 		if(confirm("Delete this dilemma?")) {
+			//TODO: Delete 
 			var currentDilemmaId = this._id;
 			Dilemmas.remove(currentDilemmaId);
 			Router.go('home');
