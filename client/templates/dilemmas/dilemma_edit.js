@@ -2,6 +2,32 @@ Template.dilemmaEdit.created = function() {
 	Session.set('dilemmaEditErrors', {});
 }
 
+Template.dilemmaEdit.rendered = function() {
+	$('#title').maxlength({
+      alwaysShow: true,
+      threshold: 10,
+      warningClass: "label label-success",
+      limitReachedClass: "label label-danger",
+      separator: ' of ',
+      preText: 'You have ',
+      postText: ' chars remaining.',
+      validate: true,
+      placement: 'bottom'
+    });
+
+	$('#message').maxlength({
+      alwaysShow: true,
+      threshold: 10,
+      warningClass: "label label-success",
+      limitReachedClass: "label label-danger",
+      separator: ' of ',
+      preText: 'You have ',
+      postText: ' chars remaining.',
+      validate: true,
+      placement: 'bottom'
+    });
+};
+
 Template.dilemmaEdit.helpers({
 	errorMessage: function(field) {
 		return Session.get('dilemmaEditErrors')[field];
@@ -31,7 +57,7 @@ Template.dilemmaEdit.events({
 		{
 			//use slingshot to upload the file first
 			var uploader = new Slingshot.Upload("myFileUploads");
-			
+
 			uploader.send(imgUpload, function (error, downloadUrl) {
 					console.log("downloadURL:" + downloadUrl);
 

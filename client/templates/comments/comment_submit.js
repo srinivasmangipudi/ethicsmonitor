@@ -2,6 +2,20 @@ Template.commentSubmit.created = function() {
 	Session.set('commentSubmitErrors', {});
 };
 
+Template.commentSubmit.rendered = function() {
+	$('#body').maxlength({
+      alwaysShow: true,
+      threshold: 10,
+      warningClass: "label label-success",
+      limitReachedClass: "label label-danger",
+      separator: ' of ',
+      preText: 'You have ',
+      postText: ' chars remaining.',
+      validate: true,
+      placement: 'bottom'
+    });
+};
+
 Template.commentSubmit.helpers({
 	errorMessage: function(field) {
 		return Session.get('commentSubmitErrors')[field];

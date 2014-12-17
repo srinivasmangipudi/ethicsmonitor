@@ -12,7 +12,7 @@
             </a>
 
             <label for="body">{{commentInfoText}}</label>
-            <textarea name="body" id="body" class="form-control" rows="3">{{myComment}}</textarea>
+            <textarea name="body" id="body" class="form-control" rows="3" maxlength="255">{{myComment}}</textarea>
             <span class="help-block">{{errorMessage 'body'}}</span>
         </div>
     </div>

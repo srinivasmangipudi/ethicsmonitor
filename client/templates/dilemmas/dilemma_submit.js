@@ -1,6 +1,32 @@
 Template.dilemmaSubmit.created = function() {
 	Session.set('dilemmaSubmitErrors', {});
-}
+};
+
+Template.dilemmaSubmit.rendered = function() {
+	$('#title').maxlength({
+      alwaysShow: true,
+      threshold: 10,
+      warningClass: "label label-success",
+      limitReachedClass: "label label-danger",
+      separator: ' of ',
+      preText: 'You have ',
+      postText: ' chars remaining.',
+      validate: true,
+      placement: 'bottom'
+    });
+
+	$('#message').maxlength({
+      alwaysShow: true,
+      threshold: 10,
+      warningClass: "label label-success",
+      limitReachedClass: "label label-danger",
+      separator: ' of ',
+      preText: 'You have ',
+      postText: ' chars remaining.',
+      validate: true,
+      placement: 'bottom'
+    });
+};
 
 Template.dilemmaSubmit.helpers({
 	errorMessage: function(field) {
