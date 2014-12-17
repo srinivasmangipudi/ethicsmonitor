@@ -175,6 +175,11 @@ body {
  .comments li p:last-child {
  margin-bottom: 0; }
 
+.notifications {
+	color:red; 
+	background:white;
+}
+
 .dropdown-menu span {
  display: block;
  padding: 3px 20px;
@@ -235,7 +240,7 @@ body {
  top: 0px;
  left: 0px;
  right: 0px;
- bottom: 0px; 
+ bottom: 0px;
  pointer-events: none;
  clear: both;
  margin-bottom: 5px;	
