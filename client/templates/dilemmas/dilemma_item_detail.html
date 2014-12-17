@@ -8,7 +8,9 @@
 		{{/if}}
 
 		<div class="dilemma-detail-content">
-			<img src={{imageUrl}} alt="Dilemma Image" style="max-width:1000px; max-height:800px;">
+			{{#if imageUrl}}
+				<img src={{imageUrl}} alt="Dilemma Image" style="max-width:1000px; max-height:800px;">
+			{{/if}}
 			<p><h3>{{title}}</h3></p>
 			<p>
 				{{message}}

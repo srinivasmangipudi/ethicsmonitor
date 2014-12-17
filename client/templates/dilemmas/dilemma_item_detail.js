@@ -3,7 +3,7 @@ Template.dilemmaItemDetail.helpers({
 		return this.dilemma ? this.dilemma._id : '';
 	},
 	imageUrl: function() {
-		return this.dilemma ? this.dilemma.imageUrl : '';
+		return this.dilemma ? this.dilemma.imageUrl : false;
 	},
 	title: function() {
 		return this.dilemma ? this.dilemma.title : '';
