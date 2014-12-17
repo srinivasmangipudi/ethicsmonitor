@@ -176,8 +176,8 @@ body {
  margin-bottom: 0; }
 
 .notifications {
-	color:red; 
-	background:white;
+	color:white; 
+	background:red;
 }
 
 .dropdown-menu span {
