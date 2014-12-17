@@ -14,3 +14,12 @@ UI.registerHelper('totalCommentsCount', function() {
 UI.registerHelper('ownDilemma', function() {
 	return this.userId === Meteor.userId();
 });
+
+UI.registerHelper('profilePhotoSmall', function() {
+	var user = Meteor.users.findOne(Meteor.userId());
+	//console.log(user);
+	if(user && user.services && user.services.facebook)
+		return "http://graph.facebook.com/" + user.services.facebook.id + "/picture";
+	else
+		return "/images/user_chashma.png";
+});

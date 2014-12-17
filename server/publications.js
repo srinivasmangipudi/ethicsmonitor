@@ -1,3 +1,7 @@
+Meteor.publish("directory", function (id) {
+  return Meteor.users.find({_id:id}, {fields: {emails: 1, profile: 1, "services.facebook.id": 1}});
+});
+
 Meteor.publish('dilemmas', function(options) {
 	check(options, {
 		sort: Object,

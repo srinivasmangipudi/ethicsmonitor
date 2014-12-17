@@ -32,6 +32,14 @@ body {
 .btn-info {
 	color: rgb(79, 80, 94);
 }
+.small-profile-pic{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    margin:10px;
+    height: 30px;
+    width: 30px;
+}
 .dilemma {
  /* For modern browsers */
  /* For IE 6/7 (trigger hasLayout) */

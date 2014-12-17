@@ -31,13 +31,14 @@ Template.dilemmaSubmit.events({
 
 			var imgUpload = document.getElementById('dilemmaImageInput').files[0];
 
-			if(typeof imgUpload)
+			if(imgUpload)
 			{
 				//use slingshot to upload the file first
 				var uploader = new Slingshot.Upload("myFileUploads");
+				Session.set("uploader", uploader);
 
 				uploader.send(imgUpload, function (error, downloadUrl) {
-					console.log("downloadURL:" + downloadUrl);
+					//console.log("downloadURL:" + downloadUrl);
 
 					if(error)
 						return throwError(error.reason);
