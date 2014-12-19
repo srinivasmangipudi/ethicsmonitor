@@ -28,8 +28,8 @@ UI.registerHelper('profilePhotoSmall', function() {
 
 UI.registerHelper('userPhotoSmall', function(id) {
 	var user = Meteor.users.findOne(id);
-	console.log(id);
-	console.log(user);
+	//console.log(id);
+	//console.log(user);
 	if(user && user.services && user.services.facebook)
 	{
 		console.log("http://graph.facebook.com/" + user.services.facebook.id + "/picture");
