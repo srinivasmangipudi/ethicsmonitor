@@ -67,7 +67,9 @@ body {
  -webkit-transition: all 300ms 0ms; -webkit-transition-delay: ease-in;
  -moz-transition: all 300ms 0ms ease-in;
  -o-transition: all 300ms 0ms ease-in;
- transition: all 300ms 0ms ease-in; }
+ transition: all 300ms 0ms ease-in; 
+ width: 60%;
+}
 
  .dilemma .upvote {
  display: block;

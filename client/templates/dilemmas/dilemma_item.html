@@ -10,6 +10,10 @@
 				<span class="opinion-summary-no">{{commentsNoCount}}</span>
 			</div>
 
+			{{#if imageUrl}}
+				<img src={{imageUrl}} alt="Dilemma Image" style="max-width: 100%; height:auto;  ">
+			{{/if}}
+			
 			<h3>
 				<a href="{{pathFor 'dilemmaPage'}}">{{title}}</a></h3>
 			<p>
