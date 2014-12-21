@@ -2,7 +2,7 @@
 	<div class="dilemma" {{attributes}}>
 
 		<div class="dilemma-content">
-			<div >
+			<div class="opinion-block">
 				<span class="glyphicon glyphicon-ok opinion-summary-yes" aria-hidden="true"></span>
 				<span class="opinion-summary-yes">{{commentsYesCount}}</span>
 				&nbsp;
@@ -13,7 +13,7 @@
 			{{#if imageUrl}}
 				<img src={{imageUrl}} alt="Dilemma Image" style="max-width: 100%; height:auto;  ">
 			{{/if}}
-			
+
 			<h3>
 				<a href="{{pathFor 'dilemmaPage'}}">{{title}}</a></h3>
 			<p>
