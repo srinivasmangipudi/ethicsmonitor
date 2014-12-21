@@ -1,5 +1,5 @@
 Slingshot.createDirective("myFileUploads", Slingshot.S3Storage, {
-  bucket: "temp-ethicsmonitor",
+  bucket: "ethicsmonitor",
   allowedFileTypes: ["image/png", "image/jpeg", "image/gif"],
   maxSize: 0,
   acl: "public-read",
