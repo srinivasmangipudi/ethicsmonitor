@@ -1,0 +1,11 @@
+<template name="dilemmaUser">
+	<div class="dilemmas">
+		{{#each dilemmas}}
+			{{> dilemmaItem}}
+		{{/each}}
+
+		{{#unless ready}}
+			{{> spinner}}
+		{{/unless}}
+	</div>
+</template>

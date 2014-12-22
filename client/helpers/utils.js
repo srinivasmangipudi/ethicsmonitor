@@ -15,6 +15,11 @@ UI.registerHelper('ownDilemma', function() {
 	return this.userId === Meteor.userId();
 });
 
+UI.registerHelper('currentUserId', function() {
+	return Meteor.userId();
+});
+
+
 UI.registerHelper('profilePhotoSmall', function() {
 	var user = Meteor.users.findOne(Meteor.userId());
 	//console.log(user);
@@ -40,3 +45,4 @@ UI.registerHelper('userPhotoSmall', function(id) {
 	else
 		return "/images/user_chashma.png";
 });
+
