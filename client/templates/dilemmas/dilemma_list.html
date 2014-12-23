@@ -1,5 +1,10 @@
 <template name="dilemmasList">
 	<div class="dilemmas">
+
+		{{#with latestDilemma}}
+			{{> myLatestDilemma}}
+		{{/with}}
+
 		{{#each dilemmasWithRank}}
 			{{> dilemmaItem}}
 		{{/each}}

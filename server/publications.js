@@ -18,13 +18,17 @@ Meteor.publish('singleDilemma', function(id) {
 	return Dilemmas.find(id);
 });
 
+Meteor.publish('myLatestDilemma', function(id) {
+	check(id, String);
+	return Dilemmas.find({userId:id}, {sort: {submitted: -1, _id: -1}});
+});
+
 Meteor.publish('userDilemmas', function(id, options) {
 	check(id, String);
 	check(options, {
 		sort: Object,
 		limit: Number
 	});
-	//return Dilemmas.find({userId:id}, {sort: {submitted: -1, votes: -1, _id: -1}});
 	return Dilemmas.find({userId:id}, options);
 });
 
