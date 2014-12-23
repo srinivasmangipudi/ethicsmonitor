@@ -57,8 +57,8 @@ if (Dilemmas.find().count() === 0)
 	});
 
 	Dilemmas.insert({
-	title: "A hungry Photogapher",
-	message: "If photography is not feeding a photographer's belly, then how can his work remain ethical?",
+	title: "A struggling Photogapher",
+	message: "If photographer is not able to make a living from photography, then can his work remain ethical?",
 	imageUrl: "",
 	userId: testuser._id,
 	author: testuser.profile.name,
@@ -82,7 +82,7 @@ if (Dilemmas.find().count() === 0)
 
 	Dilemmas.insert({
 	title: "Is it ethical to use photography to sell a product, when you know the product is harmful.",
-	message: "If I am paid to do a job of photogrpahing, which I need to makea living, how can I do that job if I know that what I am doing might be bad for people? I also really need the job, and my work is fine, but I am not sure of its implications. Please advice!",
+	message: "If I am paid for the job, which I need to make a living, how can I do that job if I know that what I am doing might be bad for people? I also really need the job, and my work is fine, but I am not sure of its implications. Please advice!",
 	imageUrl: "",
 	userId: testuser._id,
 	author: testuser.profile.name,
@@ -106,7 +106,7 @@ if (Dilemmas.find().count() === 0)
 
 	Dilemmas.insert({
 	title: "Can I use that picture?",
-	message: "This graphic shows a flow-chart of copyright issues of the use a picture. Can I ethically use this graphic then?",
+	message: "This graphic shows a flow-chart of copyright issues of the use a picture. Just wanted to know your opinion about it.",
 	imageUrl: "https://s3.amazonaws.com/ethicsmonitor/TestUser/Infographic_CanIUseThatPicture.jpg",
 	userId: testuser._id,
 	author: testuser.profile.name,
