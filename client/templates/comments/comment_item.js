@@ -13,5 +13,12 @@ Template.commentItem.helpers({
 		else
 			//return "comment-opinion-no";
 			return false;
+	},
+
+	commentBoxColor: function() {
+		if(this.opinion === "yes")
+			return "rgb(230, 249, 230)";
+		else
+			return "rgb(245, 217, 217)";
 	}
 });
