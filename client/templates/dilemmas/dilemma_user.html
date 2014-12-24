@@ -1,7 +1,12 @@
 <template name="dilemmaUser">
 	<div class="dilemmas">
+		
+		{{#if profilePhotoSmall}}
+			<img class="large-profile-pic" src="{{profilePhotoLarge}}" alt="me">
+		{{/if}}
+
 		{{#each dilemmas}}
-			{{> dilemmaItem}}
+			{{> dilemmaItemUser}}
 		{{/each}}
 
 		{{#unless ready}}

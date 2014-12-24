@@ -31,6 +31,17 @@ UI.registerHelper('profilePhotoSmall', function() {
 		return "/images/user_chashma.png";
 });
 
+UI.registerHelper('profilePhotoLarge', function() {
+	var user = Meteor.users.findOne(Meteor.userId());
+	//console.log(user);
+	if(user && user.services && user.services.facebook)
+		return "http://graph.facebook.com/" + user.services.facebook.id + "/picture?&type=square&width=200&height=200";
+	else if(user && user.services && user.services.twitter)
+		return user.services.twitter.profile_image_url;
+	else
+		return "/images/user_chashma.png";
+});
+
 UI.registerHelper('userPhotoSmall', function(id) {
 	var user = Meteor.users.findOne(id);
 	//console.log(id);
