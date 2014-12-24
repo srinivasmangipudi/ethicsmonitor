@@ -9,6 +9,18 @@ if (Dilemmas.find().count() === 0)
 	var testuser = Meteor.users.findOne(testuserId);
 
 	Dilemmas.insert({
+	title: "Can I use that picture?",
+	message: "This graphic shows a flow-chart of copyright issues of the use a picture. Just wanted to know your opinion about it.",
+	imageUrl: "https://s3.amazonaws.com/ethicsmonitor/TestUser/Infographic_CanIUseThatPicture.jpg",
+	userId: testuser._id,
+	author: testuser.profile.name,
+	submitted: new Date(),
+	commentsYesCount: 0,
+	commentsNoCount: 0,
+	votes: 0
+	});
+
+	Dilemmas.insert({
 	title: 'Teen sisters allegedly gang-raped, hanged to death in Uttar Pradesh',
 	message: 'Is it ethical to put human remains on public display',
 	imageUrl: "https://s3.amazonaws.com/ethicsmonitor/TestUser/baudhan_rape.jpg",
@@ -96,18 +108,6 @@ if (Dilemmas.find().count() === 0)
 	title: "Amanda and her cousin",
 	message: "This photo is ethically evaluative because it shows a chubby girl and smoking girl who are obviously young, in their swimsuits, which is ethically wrong. The looks on their faces also show how they are not very happy, proving that the situation is not ideal.",
 	imageUrl: "https://s3.amazonaws.com/ethicsmonitor/TestUser/amanda-and-her-cousin-amy-valese-north-carolina-1990.jpg",
-	userId: testuser._id,
-	author: testuser.profile.name,
-	submitted: new Date(),
-	commentsYesCount: 0,
-	commentsNoCount: 0,
-	votes: 0
-	});
-
-	Dilemmas.insert({
-	title: "Can I use that picture?",
-	message: "This graphic shows a flow-chart of copyright issues of the use a picture. Just wanted to know your opinion about it.",
-	imageUrl: "https://s3.amazonaws.com/ethicsmonitor/TestUser/Infographic_CanIUseThatPicture.jpg",
 	userId: testuser._id,
 	author: testuser.profile.name,
 	submitted: new Date(),
