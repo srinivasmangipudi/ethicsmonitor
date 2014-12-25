@@ -6,8 +6,8 @@ Template.dilemmasList.helpers({
 		});
 	},
 
-	latestDilemma: function() {
+	/*latestDilemma: function() {
 		console.log(this.myLatestDilemma);
 		return this.myLatestDilemma ? this.myLatestDilemma : false;
-	},
+	},*/
 });
