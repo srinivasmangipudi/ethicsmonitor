@@ -14,11 +14,14 @@
 				<img src={{imageUrl}} alt="Dilemma Image" style="max-width: 100%; height:auto;  ">
 			{{/if}}
 
-			<h3>
-				<a href="{{pathFor 'dilemmaPage'}}">{{title}}</a></h3>
+			<p>
+				<h3>
+					<a href="{{pathFor 'dilemmaPage'}}">{{title}}</a>
+				</h3>
+			</p>
 			<p>
 				submitted by <b>{{author}}</b>,
-				<a href="{{pathFor 'dilemmaPage'}}">{{pluralize totalCommentsCount "Opinion"}}</a>
+				{{pluralize totalCommentsCount "Opinion"}}
 			</p>
 		</div>
 
