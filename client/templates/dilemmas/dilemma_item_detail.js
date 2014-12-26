@@ -12,7 +12,10 @@ Template.dilemmaItemDetail.helpers({
 		return this.dilemma ? this.dilemma.message : '';
 	},
 	credits: function() {
-		return this.dilemma ? this.dilemma.credits : '';
+		var cc = this.dilemma ? this.dilemma.credits : '';
+		if(!cc || cc === '')
+			cc = 'unspecified';
+		return cc;
 	},
 	author: function() {
 		return this.dilemma ? this.dilemma.author : '';
