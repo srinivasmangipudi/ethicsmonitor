@@ -38,8 +38,25 @@ body {
 	color: rgb(79, 80, 94);
 }
 
-.dilemma-action-buttons {
-    clear: both;
+.user-card {
+    width: 39%;
+    float: right;
+    background-color: aliceblue;
+    position: relative;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.user-card-content {
+    text-align: center;
 }
 
 .small-profile-pic{
@@ -56,11 +73,11 @@ body {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     margin:10px;
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     display: block;
-    margin-left: auto;
-    margin-right: auto 
+    border: 1px;
+    border-color: white;
 }
 
 .dilemma {
@@ -70,6 +87,10 @@ body {
  position: relative;
  opacity: 1; 
  width: 59%;
+}
+
+.dilemma-action-buttons {
+    clear: both;
 }
 
 .dilemma-item-user {

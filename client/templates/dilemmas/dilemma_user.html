@@ -1,12 +1,12 @@
 <template name="dilemmaUser">
-	<div class="dilemmas">
-		
-		{{#if profilePhotoSmall}}
-			<img class="large-profile-pic" src="{{profilePhotoLarge}}" alt="me">
-		{{/if}}
+	{{#with user}}
+		{{> userCard}}
+	{{/with}}
 
+	<div class="dilemmas">
+			
 		{{#each dilemmas}}
-			{{> dilemmaItemUser}}
+			{{> dilemmaItem}}
 		{{/each}}
 
 		{{#unless ready}}
