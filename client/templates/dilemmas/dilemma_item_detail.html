@@ -3,7 +3,7 @@
 	
 		<meta property="og:site_name" content="http://ethicsmonitor.org" />
 		<meta property="og:title" content="{{title}}" />
-		<meta property="og:type" content="dilemma" />
+		<meta property="og:type" content="article" />
 		<meta property="og:image" content="{{imageUrl}}" />
 		<meta property="og:url" content="http://ethicsmonitor.meteor.com{{pathFor 'dilemmaPage'}}" />
 		<meta property="og:description" content="{{message}}" />
@@ -15,9 +15,12 @@
 		{{/if}}
 
 		<div class="dilemma-detail-content">
-			{{#if imageUrl}}
-				<img src={{imageUrl}} alt="Dilemma Image" style="max-width: 100%; height:auto;  ">
-			{{/if}}
+			<p>
+				{{#if imageUrl}}
+					<img src={{imageUrl}} alt="Dilemma Image" style="max-width: 100%; height:auto;">
+				{{/if}}
+			</p>
+			<p style="text-align: left; color: lightgrey;"><i>Credits:{{credits}}</i></p>
 			<p><h3>{{title}}</h3></p>
 			<p>
 				{{message}}
@@ -38,7 +41,7 @@
 				<span class="opinion-summary-no">{{commentsNoCount}}</span>
 			</p>
 			
-			{{>shareit}}
+			{{> shareit shareData}}
 		</div>
 	</div>
 </template>

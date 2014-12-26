@@ -45,7 +45,8 @@ Template.dilemmaEdit.events({
 
 		var dilemmaProperties = {
 			title: $(e.target).find('[name=title]').val(),
-			message: $(e.target).find('[name=message]').val()
+			message: $(e.target).find('[name=message]').val(),
+			credits: $(e.target).find('[name=credits]').val(),
 		};
 
 		var errors = validateDilemma(dilemmaProperties);
@@ -67,6 +68,7 @@ Template.dilemmaEdit.events({
 					var dilemmaProperties = {
 						title: $(e.target).find('[name=title]').val(),
 						message: $(e.target).find('[name=message]').val(),
+						credits: $(e.target).find('[name=credits]').val(),
 						imageUrl: downloadUrl
 					};
 

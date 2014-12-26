@@ -1,15 +1,10 @@
 Template.progressBar.helpers({
   progress: function () {
+    console.log(this.uploader);
 
-  	var uploader = Session.get("uploader");
-  	console.log(uploader);
-
-  	if(uploader !== undefined && uploader.progress)
-  	{
-  		//console.log(Math.round(uploader.progress * 100));
-  		return Math.round(uploader.progress * 100);
-  	}
+    if(this.uploader)
+      return Math.round(this.uploader.progress() * 100);
     else
-    	return 0;
+      return 0;
   }
 });

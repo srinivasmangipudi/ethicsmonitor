@@ -11,6 +11,9 @@ Template.dilemmaItemDetail.helpers({
 	message: function() {
 		return this.dilemma ? this.dilemma.message : '';
 	},
+	credits: function() {
+		return this.dilemma ? this.dilemma.credits : '';
+	},
 	author: function() {
 		return this.dilemma ? this.dilemma.author : '';
 	},
@@ -32,5 +35,25 @@ Template.dilemmaItemDetail.helpers({
 	},
 	ownDilemma: function() {
 		return this.dilemma ? (this.dilemma.userId === Meteor.userId()) : false;
+	},
+	/*shareData: function() {
+		return {
+			title: this.dilemma ? this.dilemma.title : '',
+			author: this.dilemma ? this.dilemma.author : '',
+			description: this.dilemma ? this.dilemma.message : '',
+			image: this.dilemma ? this.dilemma.imageUrl : false,
+			thumbnail: this.dilemma ? this.dilemma.imageUrl : false,
+		}
+	}*/
+	shareData: function() {
+		//console.log(this.dilemma.title + " " + this.dilemma.author + " " + this.dilemma.message);
+
+		return {
+			title: this.dilemma.title,
+			author: this.dilemma.author,
+			summary: this.dilemma.message,
+			image: this.dilemma.imageUrl,
+			thumbnail: this.dilemma.imageUrl,
+		}
 	}
 });

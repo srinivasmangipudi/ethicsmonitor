@@ -1,5 +1,6 @@
 Template.dilemmaSubmit.created = function() {
 	Session.set('dilemmaSubmitErrors', {});
+	//Session.set('uploader', new Slingshot.Upload("myFileUploads"));
 };
 
 Template.dilemmaSubmit.rendered = function() {
@@ -34,7 +35,10 @@ Template.dilemmaSubmit.helpers({
 	},
 	errorClass: function(field) {
 		return !!Session.get('dilemmaSubmitErrors')[field] ? 'has-error' : '';
-	}
+	},
+	uploader: function() {
+		return Session.get("uploader");
+	},
 });
 
 Template.dilemmaSubmit.events({
@@ -43,7 +47,8 @@ Template.dilemmaSubmit.events({
 
 		var dilemma = {
 			title: $(e.target).find('[name=title]').val(),
-			message: $(e.target).find('[name=message]').val()
+			message: $(e.target).find('[name=message]').val(),
+			credits: $(e.target).find('[name=credits]').val(),
 		};
 
 		var errors = validateDilemma(dilemma);
@@ -61,7 +66,8 @@ Template.dilemmaSubmit.events({
 			{
 				//use slingshot to upload the file first
 				var uploader = new Slingshot.Upload("myFileUploads");
-				Session.set("uploader", uploader);
+				Session.set('uploader', uploader);
+				//console.log(uploader);
 
 				uploader.send(imgUpload, function (error, downloadUrl) {
 					//console.log("downloadURL:" + downloadUrl);
@@ -74,8 +80,10 @@ Template.dilemmaSubmit.events({
 					var dilemmaProperties = {
 						title: $(e.target).find('[name=title]').val(),
 						message: $(e.target).find('[name=message]').val(),
+						credits: $(e.target).find('[name=credits]').val(),
 						imageUrl: downloadUrl
 					};
+					//dilemma.imageUrl = downloadUrl;
 
 					Dilemmas.update(currentDilemmaId, {$set: dilemmaProperties}, function(error) {
 						if(error) {
@@ -85,7 +93,8 @@ Template.dilemmaSubmit.events({
 							Router.go('dilemmaPage', {_id: currentDilemmaId});
 						}
 					});
-				});			
+				});
+				//Session.set('uploader', "");
 			}
 			else
 				Router.go('dilemmaPage', {_id: result._id});
