@@ -33,7 +33,10 @@ body {
 
 .footer {
     background: rgb(248, 248, 248);
+    text-align: center;
+    text-align: -webkit-center;
 }
+
 #spinner {
  height: 300px; }
 
