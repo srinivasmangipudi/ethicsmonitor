@@ -1,7 +1,26 @@
 <template name="landingPage">
 
+	<div class="feedback-box">
+		<div class="feedback-box-content">
+			<div>
+				Feedback & Suggestions
+			</div>
+			<div style="display: inline">
+				<form class="main form" style="background: aliceblue; -webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;">
+					<div class="form-group" style="">
+						<label class="control-label" for="feedback"></label>
+						<div class="controls" >
+							<textarea name="feedback" id="feedback" type="text" value="" rows="5" placeholder="Would you have any suggestions (technical or creative) for improving the Ethics Monitor website, we'd like to hear from you. Please vote for any additional features / suggestions or submit your own ideas!" class="form-control" maxlength="255"></textarea>
+							<span class="help-block"></span>
+						</div>
+					</div>
+					<input type="submit" value="Submit" class="btn btn-primary"/>
+				</form>
+			</div>
+		</div>
+	</div>
 	<div>
-		<p><img src={{lastDilemmaImage}} alt="Dilemma Image" style="max-width: 100%; height:auto;"></p>
+		<p><img src={{lastDilemmaImage}} style="max-width: 59%; height:auto;" alt="Dilemma Image" ></p>
 		<p style="color: lightgrey;"><i>Credits: {{lastDilemmaCredits}}</i></p>
 	</div>
 

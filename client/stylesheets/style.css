@@ -31,11 +31,34 @@ body {
  -o-border-radius: 0px 0px 3px 3px;
  border-radius: 0px 0px 3px 3px; }
 
+.footer {
+    background: rgb(248, 248, 248);
+}
 #spinner {
  height: 300px; }
 
 .btn-info {
 	color: rgb(79, 80, 94);
+}
+.feedback-box {
+    width: 39%;
+    float: right;
+    background-color: aliceblue;
+    position: relative;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.feedback-box-content {
+    text-align: center;
 }
 
 .user-card {
