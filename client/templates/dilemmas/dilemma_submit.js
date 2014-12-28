@@ -90,6 +90,12 @@ Template.dilemmaSubmit.events({
 							//display the error to the user
 							alert(error.reason);
 						} else {
+							// if everything went well, store a snapshot of this dilemma in dbGems object
+							Meteor.call('dbgemsLastImageDilemmaUpdate', dilemmaProperties, function(error, dbgemid) {
+								if(error)
+									alert(error.reason);
+							});
+
 							Router.go('dilemmaPage', {_id: currentDilemmaId});
 						}
 					});

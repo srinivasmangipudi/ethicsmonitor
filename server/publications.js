@@ -15,6 +15,11 @@ Meteor.publish('singleUser', function(id) {
 												"services.twitter.profile_image_url": 1}});
 });
 
+Meteor.publish('dbGems', function() {
+	return DbGems.find();
+});
+
+
 Meteor.publish('dilemmas', function(options) {
 	check(options, {
 		sort: Object,

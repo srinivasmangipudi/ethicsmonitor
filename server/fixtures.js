@@ -84,6 +84,7 @@ if (Dilemmas.find().count() === 0)
 	title: "Don't Feed the Bears: Ethics in Wildlife Photography and Filmmaking",
 	message: "The ethics behind photography of wildlife like this great gray owl have come into question after a marine biologist was fined for baiting whales to come closer in order to film them.",
 	imageUrl: "https://s3.amazonaws.com/ethicsmonitor/TestUser/wildlife-filmmaking-ethics-hogan.jpg",
+	credits: "National Geographic",
 	userId: testuser._id,
 	author: testuser.profile.name,
 	submitted: new Date(),
@@ -104,15 +105,29 @@ if (Dilemmas.find().count() === 0)
 	votes: 0
 	});
 
-	Dilemmas.insert({
+	var lastId = Dilemmas.insert({
 	title: "Amanda and her cousin",
 	message: "This photo is ethically evaluative because it shows a chubby girl and smoking girl who are obviously young, in their swimsuits, which is ethically wrong. The looks on their faces also show how they are not very happy, proving that the situation is not ideal.",
 	imageUrl: "https://s3.amazonaws.com/ethicsmonitor/TestUser/amanda-and-her-cousin-amy-valese-north-carolina-1990.jpg",
+	credits: "Mary Ellen Mark",
 	userId: testuser._id,
 	author: testuser.profile.name,
 	submitted: new Date(),
 	commentsYesCount: 0,
 	commentsNoCount: 0,
 	votes: 0
+	});
+
+	var lastImageDilemma = Dilemmas.findOne(lastId);
+
+	//create the DbGems object which will store unique stats about the website for constant time fetch
+	DbGems.insert({
+		lastImageDilemmaId: lastId,
+		lastImageDilemmaUrl: lastImageDilemma.imageUrl,
+		lastImageDilemmaCredits: lastImageDilemma.credits,
+		lastImageDilemmaCommentsYesCount: lastImageDilemma.commentsYesCount,
+		lastImageDilemmaCommentsNoCount: lastImageDilemma.commentsNoCount,
+		lastImageDilemmaVotes: lastImageDilemma.votes,
+		submitted: new Date(),
 	});
 }

@@ -11,18 +11,23 @@
 
 				<a class="navbar-brand navbar-custom" href="{{pathFor 'home'}}">
 					<img class="" src="/images/em.png" alt="Ethics Monitor" style="height:35px; width:35px;display:inline;">
+					{{#if currentUser}}
+					{{else}}
+						<b>Ethics Monitor</b>
+					{{/if}}
 				</a>
 				
 			</div>
 			<div class="collapse navbar-collapse" id="navigation">
 				<ul class="nav navbar-nav">
-					<li class="{{activeRouteClass 'home' 'newDilemmas'}}">
-						<a href="{{pathFor 'newDilemmas'}}">New Dilemmas</a>
-					</li>
-					<li class="{{activeRouteClass 'bestDilemmas'}}">
-						<a href="{{pathFor 'bestDilemmas'}}">Big Dilemmas</a>
-					</li>
 					{{#if currentUser}}
+						<li class="{{activeRouteClass 'home' 'newDilemmas'}}">
+							<a href="{{pathFor 'newDilemmas'}}">New Dilemmas</a>
+						</li>
+						<li class="{{activeRouteClass 'bestDilemmas'}}">
+							<a href="{{pathFor 'bestDilemmas'}}">Big Dilemmas</a>
+						</li>
+					
 						<li class="{{activeRouteClass 'dilemmaSubmit'}}">
 							<a href="{{pathFor 'dilemmaSubmit'}}" style="color:#33CCFF;">Submit Dilemma</a>
 						</li>

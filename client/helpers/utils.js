@@ -72,7 +72,7 @@ UI.registerHelper('userPhotoLarge', function(id) {
 		return "/images/user_chashma.png";
 });
 
-/*UI.registerHelper('userName', function(id) {
+UI.registerHelper('userName', function(id) {
 	var user = Meteor.users.findOne(id);
 	console.log(id);
 	console.log(user);
@@ -82,4 +82,4 @@ UI.registerHelper('userPhotoLarge', function(id) {
 	}
 	else
 		return user.username;
-});*/
+});
