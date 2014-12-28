@@ -1,3 +1,7 @@
+Template.landingPage.rendered = function() {
+    Session.set('feedbackGiven', false);
+};
+
 Template.landingPage.helpers({
 	lastDilemmaImage: function() {
 		//console.log(this.dbGems);
@@ -5,6 +9,9 @@ Template.landingPage.helpers({
 	},
 	lastDilemmaCredits: function() {
 		return this.dbGems.lastImageDilemmaCredits;
+	},
+	feedbackGiven: function() {
+		return Session.get('feedbackGiven');
 	}
 });
 
@@ -27,18 +34,10 @@ Template.landingPage.events({
 		if(!from)
 			from = "userwithnoemail@ethicsmonitor.org";
 
-		var to = "shrinimann@gmail.com";
+		var to = "em@goa-cap.org";
 
 		var $body = $(e.target).find('[name=feedback]');
 		var subject = "Feedback/Suggestion from: " + user || undefined;
-
-		/*Email.send({
-			from: "suggestions@ethicsmonitor.org",
-			to: to,
-			replyTo: from || undefined,
-			subject: "Feedback/Suggestion from: " + user._id || undefined,
-			text: body
-		});*/
 
 		// In your client code: asynchronously send an email
 		Meteor.call('sendEmail',
@@ -46,7 +45,14 @@ Template.landingPage.events({
             from,
             subject,
             $body.val());
+
+		Session.set('feedbackGiven', true);
 	},
+
+	'click .newSuggestion':function(){
+    	//console.log("new suggestion clicked");
+    	Session.set('feedbackGiven', false);
+  },
 });
 
 var contactEmail = function (user) {
