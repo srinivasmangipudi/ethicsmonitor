@@ -1,0 +1,1 @@
+process.env.MAIL_URL = "smtp://postmaster@ethicsmonitor.org:4c529f42da13565f0203e2a9045c5432@smtp.mailgun.org:465/";

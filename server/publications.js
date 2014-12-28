@@ -2,6 +2,7 @@ Meteor.publish("directory", function (id) {
   return Meteor.users.find({_id:id}, {fields: { emails: 1,
 												profile: 1,
 												"services.facebook.id": 1,
+												"services.facebook.email": 1,
 												"services.twitter.screenName": 1,
 												"services.twitter.profile_image_url": 1}});
 });
@@ -11,6 +12,7 @@ Meteor.publish('singleUser', function(id) {
 	return Meteor.users.find({_id:id}, {fields: { emails: 1,
 												profile: 1,
 												"services.facebook.id": 1,
+												"services.facebook.email": 1,
 												"services.twitter.screenName": 1,
 												"services.twitter.profile_image_url": 1}});
 });
