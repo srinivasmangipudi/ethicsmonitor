@@ -31,10 +31,25 @@ body {
  -o-border-radius: 0px 0px 3px 3px;
  border-radius: 0px 0px 3px 3px; }
 
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -60px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.footer, .page-wrap:after {
+  height: 60px; 
+}
 .footer {
-    background: rgb(248, 248, 248);
+    background: rgb(255, 255, 255);
     text-align: center;
     text-align: -webkit-center;
+    margin-bottom: -60px;
+    padding-top: 20px;
+    color: #4B8EFB
 }
 
 #spinner {
