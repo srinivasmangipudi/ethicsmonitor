@@ -1,0 +1,34 @@
+<template name="feedbackBox">
+	<div class="feedback-box">
+		<div class="feedback-box-content">
+			<div>
+				Feedback & Suggestions
+			</div>
+			<div style="display: inline">
+
+				{{#if feedbackGiven}}
+					<div style="text-align: center;">
+						<h3>Thank you!</h3>
+						<p style="text-align: left;">
+							Thank you very much for your suggestion. We appreciate the time and effort you have spent to share your insightful comments, which will be seriously considered and adequately implemented. We always welcome bright ideas from interested individuals like you and we hope that you continue to share them with us in the future.
+						</p>
+					</div>
+					<div>
+						<a href="#" class="newSuggestion" style="text-align: right;">New Suggestion</a>
+					</div>
+				{{else}}
+					<form class="main form" style="background: aliceblue; -webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;">
+						<div class="form-group" style="">
+							<label class="control-label" for="feedback"></label>
+							<div class="controls" >
+								<textarea name="feedback" id="feedback" type="text" value="" rows="5" placeholder="Would you have any suggestions (technical or creative) for improving the Ethics Monitor website, we'd like to hear from you. Please vote for any additional features / suggestions or submit your own ideas!" class="form-control" maxlength="255"></textarea>
+								<span class="help-block"></span>
+							</div>
+						</div>
+						<input type="submit" value="Submit" class="btn btn-primary"/>
+					</form>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</template>
