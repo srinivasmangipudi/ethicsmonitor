@@ -9,8 +9,12 @@
 			{{> dilemmaItem}}
 		{{/each}}
 
-		{{#unless ready}}
-			{{> spinner}}
-		{{/unless}}
+		{{#if nextPath}}
+			<a class="load-more" href="{{nextPath}}">Load More</a>
+		{{else}}
+			{{#unless ready}}
+				{{> spinner}}
+			{{/unless}}
+		{{/if}}
 	</div>
 </template>
