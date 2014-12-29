@@ -207,7 +207,9 @@ body {
  .dilemma .discuss {
  display: block;
  float: right;
- margin-top: 7px; }
+ margin-top: 7px; 
+ color: #33CCFF;
+}
 
 .dilemma .edit {
  display: block;
