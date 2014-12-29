@@ -10,10 +10,12 @@
 				</button>
 
 				<a class="navbar-brand navbar-custom" href="{{pathFor 'home'}}">
-					<img class="" src="/images/em.png" alt="Ethics Monitor" style="height:35px; width:35px;display:inline;">
+					<span style="font-size: 20px;"><img class="" src="/images/em.png" alt="Ethics Monitor" style="height:35px;width:35px;"></span>
 					{{#if currentUser}}
 					{{else}}
+					<span style="vertical-align:middle;">
 						&nbsp;Ethics Monitor
+					</span>
 					{{/if}}
 				</a>
 				
