@@ -17,14 +17,21 @@
 						<a href="#" class="newSuggestion" style="text-align: right;">New Suggestion</a>
 					</div>
 				{{else}}
-					<form class="main form" style="background: aliceblue; -webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;">
+					<form class="main form" style="background: aliceblue; -webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;">						
 						<div class="form-group" style="">
 							<label class="control-label" for="feedback"></label>
 							<div class="controls" >
 								<textarea name="feedback" id="feedback" type="text" value="" rows="5" placeholder="Would you have any suggestions (technical or creative) for improving the Ethics Monitor website, we'd like to hear from you. Please vote for any additional features / suggestions or submit your own ideas!" class="form-control" maxlength="255"></textarea>
 								<span class="help-block"></span>
 							</div>
-						</div>
+						</div>	
+						{{#if showEmailBox}}
+							<div class="form-group">
+								<div class="controls">
+									<input name="email" id="email" type="text" value="" placeholder="Please enter your email" class="form-control" maxlength="100"/>
+								</div>
+							</div>
+						{{/if}}
 						<input type="submit" value="Submit" class="btn btn-primary"/>
 					</form>
 				{{/if}}

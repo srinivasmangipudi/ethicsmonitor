@@ -5,6 +5,12 @@ Template.feedbackBox.rendered = function() {
 Template.feedbackBox.helpers({
 	feedbackGiven: function() {
 		return Session.get('feedbackGiven');
+	},
+	showEmailBox: function() {
+		if(Meteor.user())
+			return false;
+		else
+			return true;
 	}
 });
 
@@ -16,14 +22,18 @@ Template.feedbackBox.events({
 		var from = '';
 
 		if(user)
-			{
-				from = contactEmail(user);
-				user = user._id;
-			}
-			
+		{
+			from = contactEmail(user);
+			user = user._id;
+		}
 		else
-			user = "Not Logged User"
-
+		{
+			var $email = $(e.target).find('[name=email]');
+			from = $email.val();
+			console.log(from);
+			user = "Not Logged User";
+		}
+			
 		if(!from)
 			from = "userwithnoemail@ethicsmonitor.org";
 
