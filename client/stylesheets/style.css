@@ -181,7 +181,17 @@ body {
  float: left; }
 
 .dilemma .dilemma-detail-content {
- text-align: center; }
+ text-align: center; 
+ clear: both;
+}
+
+.dilemma .dilemma-detail-content h3 {
+ font-weight: 200;
+}
+
+.dilemma .dilemma-detail-content p {
+ font-weight: 100;
+}
 
  .dilemma .dilemma-content h3 {
  margin: 0;
@@ -190,7 +200,9 @@ body {
 
  .dilemma .dilemma-content h3 a {
  display: inline-block;
- margin-right: 5px; }
+ margin-right: 5px; 
+ font-weight: 200;
+}
 
  .dilemma .dilemma-content a {
  color: #33CCFF; }
@@ -202,7 +214,9 @@ body {
  color: #aaaaaa; }
 
  .dilemma .dilemma-content p {
- margin: 0; }
+  margin: 0;
+  font-weight: 100;
+}
 
  .dilemma .discuss {
  display: block;
@@ -230,7 +244,7 @@ body {
 }
 
 .opinion-block {
-	margin-bottom: 5px;
+	margin-bottom: 7px;
 }
 
 .glyph-yes{
