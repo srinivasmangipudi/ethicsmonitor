@@ -22,7 +22,9 @@
 				</h3>
 			</p>
 			<p>
-				submitted by <b>{{author}}</b>,
+				submitted by <a href="{{pathFor 'dilemmaUser' _id=userId}}">
+								<b>{{author}}</b>
+							</a>,
 				{{pluralize totalCommentsCount "Opinion"}}
 			</p>
 		</div>

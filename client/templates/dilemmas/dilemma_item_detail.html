@@ -26,8 +26,11 @@
 				{{message}}
 			</p>
 			<p>
-				submitted by <b>{{author}}</b>
-				<img class="small-profile-pic" src="{{userPhotoSmall userId}}" alt="me">
+				submitted by <a href="{{pathFor 'dilemmaUser' _id=userId}}">
+								<b>{{author}}</b>
+								<img class="small-profile-pic" src="{{userPhotoSmall userId}}" alt="me">
+							 </a>
+				
 			</p>
 			<p>
 				{{pluralize totalCommentsCount "Opinion"}}
