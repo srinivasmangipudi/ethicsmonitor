@@ -190,7 +190,7 @@ body {
 }
 
 .dilemma .dilemma-detail-content p {
- font-weight: 100;
+ font-weight: 200;
 }
 
  .dilemma .dilemma-content h3 {
@@ -205,7 +205,8 @@ body {
 }
 
  .dilemma .dilemma-content a {
- color: #33CCFF; }
+ color: #33CCFF;
+}
 
  .dilemma .dilemma-content h3 span {
  font-weight: normal;
@@ -215,7 +216,7 @@ body {
 
  .dilemma .dilemma-content p {
   margin: 0;
-  font-weight: 100;
+  font-weight: 200;
 }
 
  .dilemma .discuss {
