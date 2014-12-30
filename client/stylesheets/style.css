@@ -49,7 +49,8 @@ body {
     text-align: -webkit-center;
     margin-bottom: -60px;
     padding-top: 20px;
-    color: #4B8EFB
+    color: #4B8EFB;
+    clear: both;
 }
 
 #spinner {
