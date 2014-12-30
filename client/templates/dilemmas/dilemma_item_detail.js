@@ -48,7 +48,16 @@ Template.dilemmaItemDetail.helpers({
 			thumbnail: this.dilemma ? this.dilemma.imageUrl : false,
 		}
 	}*/
-	shareData: function() {
+	metaData: function() {
+		//console.log(this.dilemma.title + " " + this.dilemma.author + " " + this.dilemma.message);
+		Meta.set("og:site_name", "http://ethicsmonitor.org");
+		Meta.set("og:title", this.dilemma.title);
+		Meta.set("og:type", "article");
+		Meta.set("og:image", this.dilemma.imageUrl);
+		//Meta.set("og:url", path);
+		Meta.set("og:description", this.dilemma.message);
+	},
+	/*shareData: function() {
 		//console.log(this.dilemma.title + " " + this.dilemma.author + " " + this.dilemma.message);
 
 		return {
@@ -58,5 +67,5 @@ Template.dilemmaItemDetail.helpers({
 			image: this.dilemma.imageUrl,
 			thumbnail: this.dilemma.imageUrl,
 		}
-	}
+	}*/
 });
