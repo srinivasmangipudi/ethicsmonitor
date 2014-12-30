@@ -1,3 +1,7 @@
+UI.registerHelper('siteUrl', function(id) {
+	return "http://tempethicsmonitor.meteor.com";
+});
+
 UI.registerHelper('pluralize', function(n, thing) {
 	//fairly stupid pluralizer
 	if(n == 1) {
@@ -83,3 +87,11 @@ UI.registerHelper('userName', function(id) {
 	else
 		return user.username;
 });
+
+/*UI.registerHelper('contactEmail', function(user) {
+	if (user.emails && user.emails.length)
+    	return user.emails[0].address;
+	if (user.services && user.services.facebook && user.services.facebook.email)
+		return user.services.facebook.email;
+	return null;
+});*/

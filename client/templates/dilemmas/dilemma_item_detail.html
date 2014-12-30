@@ -5,7 +5,7 @@
 		<meta property="og:title" content="{{title}}" />
 		<meta property="og:type" content="article" />
 		<meta property="og:image" content="{{imageUrl}}" />
-		<meta property="og:url" content="http://ethicsmonitor.meteor.com{{pathFor 'dilemmaPage'}}" />
+		<meta property="og:url" content="{{siteUrl}}{{pathFor 'dilemmaPage'}}" />
 		<meta property="og:description" content="{{message}}" />
 
 		{{#if ownDilemma}}
@@ -45,7 +45,7 @@
 				<span class="opinion-summary-no">{{commentsNoCount}}</span>
 			</p>
 			
-			<a href="https://www.facebook.com/sharer/sharer.php?u=http://ethicsmonitor.meteor.com{{pathFor 'dilemmaPage'}}" target="_blank">
+			<a href="https://www.facebook.com/sharer/sharer.php?u={{siteUrl}}{{pathFor 'dilemmaPage'}}" target="_blank">
   				<img src="/images/fshare.png" style="width: 73px; height:27px" alt="Share on Facebook">
 			</a>
 		</div>
