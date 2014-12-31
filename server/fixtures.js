@@ -8,6 +8,7 @@ if (Dilemmas.find().count() === 0)
 	});
 	var testuser = Meteor.users.findOne(testuserId);
 
+	/*
 	Dilemmas.insert({
 	title: "Can I use that picture?",
 	message: "This graphic shows a flow-chart of copyright issues of the use a picture. Just wanted to know your opinion about it.",
@@ -18,7 +19,7 @@ if (Dilemmas.find().count() === 0)
 	commentsYesCount: 0,
 	commentsNoCount: 0,
 	votes: 0
-	});
+	});*/
 
 	Dilemmas.insert({
 	title: 'Teen sisters allegedly gang-raped, hanged to death in Uttar Pradesh',
@@ -68,7 +69,7 @@ if (Dilemmas.find().count() === 0)
 	votes: 0
 	});
 
-	Dilemmas.insert({
+	/*Dilemmas.insert({
 	title: "A struggling Photogapher",
 	message: "If photographer is not able to make a living from photography, then can his work remain ethical?",
 	imageUrl: "",
@@ -103,7 +104,7 @@ if (Dilemmas.find().count() === 0)
 	commentsYesCount: 0,
 	commentsNoCount: 0,
 	votes: 0
-	});
+	});*/
 
 	var lastId = Dilemmas.insert({
 	title: "Amanda and her cousin",
