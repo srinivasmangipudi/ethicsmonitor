@@ -60,7 +60,7 @@ body {
 	color: rgb(79, 80, 94);
 }
 .feedback-box {
-    width: 39%;
+    width: 100%;
     float: right;
     background-color: aliceblue;
     position: relative;
