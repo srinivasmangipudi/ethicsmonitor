@@ -1,9 +1,21 @@
 Template.dilemmaSubmit.created = function() {
 	Session.set('dilemmaSubmitErrors', {});
-	//Session.set('uploader', new Slingshot.Upload("myFileUploads"));
+	Session.set("isUploaded", true);
 };
 
 Template.dilemmaSubmit.rendered = function() {
+	$('#credits').maxlength({
+      alwaysShow: true,
+      threshold: 10,
+      warningClass: "label label-success",
+      limitReachedClass: "label label-danger",
+      separator: ' of ',
+      preText: 'You have ',
+      postText: ' chars remaining.',
+      validate: true,
+      placement: 'bottom'
+    });
+
 	$('#title').maxlength({
       alwaysShow: true,
       threshold: 10,
@@ -36,9 +48,14 @@ Template.dilemmaSubmit.helpers({
 	errorClass: function(field) {
 		return !!Session.get('dilemmaSubmitErrors')[field] ? 'has-error' : '';
 	},
-	uploader: function() {
+	/*uploader: function() {
+		console.log("uploader called");
+		console.log(Session.get("uploader"));
 		return Session.get("uploader");
-	},
+	},*/
+	isUploaded: function() {
+		return Session.get("isUploaded");
+	}
 });
 
 Template.dilemmaSubmit.events({
@@ -52,58 +69,60 @@ Template.dilemmaSubmit.events({
 		};
 
 		var errors = validateDilemma(dilemma);
-		if(errors.title || errors.message)
+		if(errors.title || errors.message || errors.dilemmaImageInput)
 			return Session.set('dilemmaSubmitErrors', errors);
 
-		Meteor.call('dilemmaInsert', dilemma, function(error, result)
+		var imgUpload = document.getElementById('dilemmaImageInput').files[0];
+
+		if(imgUpload)
 		{
-			if(error)
-				return throwError(error.reason);
+			Session.set("isUploaded", false);
 
-			var imgUpload = document.getElementById('dilemmaImageInput').files[0];
+			//use slingshot to upload the file first
+			var uploader = new Slingshot.Upload("myFileUploads");
+			//Session.set('uploader', uploader);
+			//console.log(uploader);
 
-			if(imgUpload)
+			uploader.send(imgUpload, function (error, downloadUrl) 
 			{
-				//use slingshot to upload the file first
-				var uploader = new Slingshot.Upload("myFileUploads");
-				Session.set('uploader', uploader);
-				//console.log(uploader);
+				//console.log("downloadURL:" + downloadUrl);
 
-				uploader.send(imgUpload, function (error, downloadUrl) {
-					//console.log("downloadURL:" + downloadUrl);
+				if(error)
+				{
+					Session.set("isUploaded", true);
+					//console.log(error);
+					var errors = {};
+					errors.dilemmaImageInput = error.reason;
+					return Session.set('dilemmaSubmitErrors', errors);
+				}
 
+				dilemma = _.extend(dilemma, {
+					imageUrl: downloadUrl
+				});
+
+				Meteor.call('dilemmaInsert', dilemma, function(error, result)
+				{
 					if(error)
 						return throwError(error.reason);
 
-					//If dilemma is created, we will create an update call to update the image seperately
-					var currentDilemmaId = result._id;
-					var dilemmaProperties = {
-						title: $(e.target).find('[name=title]').val(),
-						message: $(e.target).find('[name=message]').val(),
-						credits: $(e.target).find('[name=credits]').val(),
-						imageUrl: downloadUrl
-					};
-					//dilemma.imageUrl = downloadUrl;
-
-					Dilemmas.update(currentDilemmaId, {$set: dilemmaProperties}, function(error) {
-						if(error) {
-							//display the error to the user
-							alert(error.reason);
-						} else {
-							// if everything went well, store a snapshot of this dilemma in dbGems object
-							Meteor.call('dbgemsLastImageDilemmaUpdate', dilemmaProperties, function(error, dbgemid) {
-								if(error)
-									alert(error.reason);
-							});
-
-							Router.go('dilemmaPage', {_id: currentDilemmaId});
-						}
-					});
+					Session.set("isUploaded", true);
+					Router.go('dilemmaPage', {_id: result._id});
 				});
-				//Session.set('uploader', "");
-			}
-			else
+			});
+		}
+		else
+		{
+			dilemma = _.extend(dilemma, {
+						imageUrl: ""
+					});
+
+			Meteor.call('dilemmaInsert', dilemma, function(error, result)
+			{
+				if(error)
+					return throwError(error.reason);
+
 				Router.go('dilemmaPage', {_id: result._id});
-		});
+			});
+		}
 	}
 });

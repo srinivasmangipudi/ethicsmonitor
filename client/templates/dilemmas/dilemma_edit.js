@@ -1,8 +1,21 @@
 Template.dilemmaEdit.created = function() {
 	Session.set('dilemmaEditErrors', {});
-}
+	Session.set("isUploaded", true);
+};
 
 Template.dilemmaEdit.rendered = function() {
+	$('#credits').maxlength({
+      alwaysShow: true,
+      threshold: 10,
+      warningClass: "label label-success",
+      limitReachedClass: "label label-danger",
+      separator: ' of ',
+      preText: 'You have ',
+      postText: ' chars remaining.',
+      validate: true,
+      placement: 'bottom'
+    });
+
 	$('#title').maxlength({
       alwaysShow: true,
       threshold: 10,
@@ -34,6 +47,9 @@ Template.dilemmaEdit.helpers({
 	},
 	errorClass: function(field) {
 		return !!Session.get('dilemmaEditErrors')[field] ? 'has-error' : '';
+	},
+	isUploaded: function() {
+		return Session.get("isUploaded");
 	}
 });
 
@@ -50,37 +66,45 @@ Template.dilemmaEdit.events({
 		};
 
 		var errors = validateDilemma(dilemmaProperties);
-		if(errors.title || errors.message)
+		if(errors.title || errors.message || errors.dilemmaImageInput)
 			return Session.set('dilemmaEditErrors', errors);
 
 		var imgUpload = document.getElementById('dilemmaImageInput').files[0];
-		if(typeof imgUpload)
+
+		if(imgUpload)
 		{
+			Session.set("isUploaded", false);
+
 			//use slingshot to upload the file first
 			var uploader = new Slingshot.Upload("myFileUploads");
 
-			uploader.send(imgUpload, function (error, downloadUrl) {
-					console.log("downloadURL:" + downloadUrl);
+			uploader.send(imgUpload, function (error, downloadUrl) 
+			{
+				//console.log("downloadURL:" + downloadUrl);
 
-					if(error)
-						return throwError(error.reason);
+				if(error)
+				{
+					//console.log(error);
+					Session.set("isUploaded", true);
+					var errors = {};
+					errors.dilemmaImageInput = error.reason;
+					return Session.set('dilemmaEditErrors', errors);
+				}
 
-					var dilemmaProperties = {
-						title: $(e.target).find('[name=title]').val(),
-						message: $(e.target).find('[name=message]').val(),
-						credits: $(e.target).find('[name=credits]').val(),
-						imageUrl: downloadUrl
-					};
-
-					Dilemmas.update(currentDilemmaId, {$set: dilemmaProperties}, function(error) {
-						if(error) {
-							//display the error to the user
-							alert(error.reason);
-						} else {
-							Router.go('dilemmaPage', {_id: currentDilemmaId});
-						}
-					});
+				dilemmaProperties = _.extend(dilemmaProperties, {
+					imageUrl: downloadUrl
 				});
+
+				Dilemmas.update(currentDilemmaId, {$set: dilemmaProperties}, function(error) {
+					if(error) {
+						//display the error to the user
+						alert(error.reason);
+					} else {
+						Session.set("isUploaded", true);
+						Router.go('dilemmaPage', {_id: currentDilemmaId});
+					}
+				});
+			});
 		}
 		else
 		{

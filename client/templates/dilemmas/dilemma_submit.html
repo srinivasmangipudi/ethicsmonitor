@@ -1,12 +1,12 @@
 <template name="dilemmaSubmit">
 	<form class="main form">
-		<div class="form-group">
-    		<label for="dilemmaImageInput">Upload your image</label>
+		<div class="form-group {{errorClass 'dilemmaImageInput'}}">
+    		<label for="dilemmaImageInput">Upload image</label>
     		<input type="file" id="dilemmaImageInput">
-    		<p class="help-block">Please upload an image that you need ethical opinion for</p>
-    		{{#with uploader}}
-    			{{> progressBar}}
-    		{{/with}}
+    		<p class="help-block">Max allowed image size is 1.2 Mb</p>
+    		{{#unless isUploaded}}
+				{{> spinner}}
+			{{/unless}}
   		</div>
   		<div class="form-group {{errorClass 'credits'}}">
 			<label class="control-label" for="credits">Credits</label>

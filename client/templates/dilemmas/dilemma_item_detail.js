@@ -39,23 +39,14 @@ Template.dilemmaItemDetail.helpers({
 	ownDilemma: function() {
 		return this.dilemma ? (this.dilemma.userId === Meteor.userId()) : false;
 	},
-	/*shareData: function() {
-		return {
-			title: this.dilemma ? this.dilemma.title : '',
-			author: this.dilemma ? this.dilemma.author : '',
-			description: this.dilemma ? this.dilemma.message : '',
-			image: this.dilemma ? this.dilemma.imageUrl : false,
-			thumbnail: this.dilemma ? this.dilemma.imageUrl : false,
-		}
-	}*/
 	metaData: function() {
 		//console.log(this.dilemma.title + " " + this.dilemma.author + " " + this.dilemma.message);
 		Meta.set("og:site_name", "http://ethicsmonitor.org");
-		Meta.set("og:title", this.dilemma.title);
+		Meta.set("og:title", this.dilemma ? this.dilemma.title : '');
 		Meta.set("og:type", "article");
-		Meta.set("og:image", this.dilemma.imageUrl);
+		Meta.set("og:image", this.dilemma ? this.dilemma.imageUrl : '');
 		//Meta.set("og:url", path);
-		Meta.set("og:description", this.dilemma.message);
+		Meta.set("og:description", this.dilemma ? this.dilemma.message : '');
 	},
 	/*shareData: function() {
 		//console.log(this.dilemma.title + " " + this.dilemma.author + " " + this.dilemma.message);
