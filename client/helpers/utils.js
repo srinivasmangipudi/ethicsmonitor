@@ -31,6 +31,8 @@ UI.registerHelper('profilePhotoSmall', function() {
 		return "http://graph.facebook.com/" + user.services.facebook.id + "/picture";
 	else if(user && user.services && user.services.twitter)
 		return user.services.twitter.profile_image_url;
+	else if(user && user.services && user.services.google)
+		return user.services.google.picture;
 	else
 		return "/images/user_chashma.png";
 });
@@ -42,6 +44,8 @@ UI.registerHelper('profilePhotoLarge', function() {
 		return "http://graph.facebook.com/" + user.services.facebook.id + "/picture?&type=square&width=200&height=200";
 	else if(user && user.services && user.services.twitter)
 		return user.services.twitter.profile_image_url;
+	else if(user && user.services && user.services.google)
+		return user.services.google.picture;
 	else
 		return "/images/user_chashma.png";
 });
@@ -57,6 +61,8 @@ UI.registerHelper('userPhotoSmall', function(id) {
 	}
 	else if(user && user.services && user.services.twitter)
 		return user.services.twitter.profile_image_url;
+	else if(user && user.services && user.services.google)
+		return user.services.google.picture;
 	else
 		return "/images/user_chashma.png";
 });
@@ -72,6 +78,8 @@ UI.registerHelper('userPhotoLarge', function(id) {
 	}
 	else if(user && user.services && user.services.twitter)
 		return user.services.twitter.profile_image_url;
+	else if(user && user.services && user.services.google)
+		return user.services.google.picture;
 	else
 		return "/images/user_chashma.png";
 });
