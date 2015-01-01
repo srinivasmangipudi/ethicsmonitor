@@ -129,6 +129,7 @@ body {
  position: relative;
  opacity: 1; 
  width: 59%;
+ overflow: auto;
 }
 
 .dilemma-action-buttons {
