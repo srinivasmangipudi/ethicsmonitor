@@ -105,6 +105,13 @@ Template.dilemmaSubmit.events({
 					if(error)
 						return throwError(error.reason);
 
+					//var dilemmaProperties = dilemma
+					// if everything went well, store a snapshot of this dilemma in dbGems object
+					Meteor.call('dbgemsLastImageDilemmaUpdate', dilemma, function(error, dbgemid) {
+						if(error)
+							alert(error.reason);
+					});
+					
 					Session.set("isUploaded", true);
 					Router.go('dilemmaPage', {_id: result._id});
 				});
