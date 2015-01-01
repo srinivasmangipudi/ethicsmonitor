@@ -1,3 +1,19 @@
+@media (min-width: 767px) {
+   /* Basically up to, but not including an iPad */
+
+    .feedbox-wrapper {
+        width: 39%; 
+        float:right;
+    }
+}
+
+@media (max-width: 767px) {
+   /* Basically up to, but not including an iPad */
+
+    .feedbox-wrapper {
+        width: 59%; 
+    }
+}
 .grid-block, .main, .dilemma, .comments li, .comment-form {
  background: rgb(248, 248, 248);
  -webkit-border-radius: 3px;
