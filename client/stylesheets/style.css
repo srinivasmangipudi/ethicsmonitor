@@ -107,10 +107,10 @@ body {
    /* for devices < 992px width */
 
     .feedbox-wrapper {
-        width: 100%; 
+        width: 59%; 
     }
     .usercard-wrapper {
-        width: 100%; 
+        width: 59%; 
     }
     .dilemma {
      /* For modern browsers */
@@ -118,7 +118,7 @@ body {
      *zoom: 1;
      position: relative;
      opacity: 1; 
-     width: 100%;
+     width: 59%;
      overflow: auto;
     }
 }
