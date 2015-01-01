@@ -60,20 +60,66 @@ body {
 	color: rgb(79, 80, 94);
 }
 
+.small-profile-pic{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    margin:10px;
+    height: 30px;
+    width: 30px;
+}
+
+.large-profile-pic{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    margin:10px;
+    height: 150px;
+    width: 150px;
+    display: block;
+    border: 1px;
+    border-color: white;
+}
+
 @media (min-width: 992px) {
-   /* Basically up to, but not including an iPad */
+   /* for devices > 992px width */
 
     .feedbox-wrapper {
         width: 39%; 
         float:right;
     }
+    .usercard-wrapper {
+        width: 39%; 
+        float:right;
+    }
+    .dilemma {
+     /* For modern browsers */
+     /* For IE 6/7 (trigger hasLayout) */
+     *zoom: 1;
+     position: relative;
+     opacity: 1; 
+     width: 59%;
+     overflow: auto;
+    }
 }
 
 @media (max-width: 992px) {
-   /* Basically up to, but not including an iPad */
+   /* for devices < 992px width */
 
     .feedbox-wrapper {
-        width: 59%; 
+        width: 100%; 
+    }
+    .usercard-wrapper {
+        width: 100%; 
+    }
+    .dilemma {
+     /* For modern browsers */
+     /* For IE 6/7 (trigger hasLayout) */
+     *zoom: 1;
+     position: relative;
+     opacity: 1; 
+     width: 100%;
+     overflow: auto;
     }
 }
 .feedback-box {
@@ -97,22 +143,6 @@ body {
     text-align: center;
 }
 
-@media (min-width: 992px) {
-   /* Basically up to, but not including an iPad */
-
-    .usercard-wrapper {
-        width: 39%; 
-        float:right;
-    }
-}
-
-@media (max-width: 992px) {
-   /* Basically up to, but not including an iPad */
-
-    .usercard-wrapper {
-        width: 59%; 
-    }
-}
 .user-card {
     width: 100%;
     float: right;
@@ -132,37 +162,6 @@ body {
 
 .user-card-content {
     text-align: center;
-}
-
-.small-profile-pic{
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    margin:10px;
-    height: 30px;
-    width: 30px;
-}
-
-.large-profile-pic{
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    margin:10px;
-    height: 150px;
-    width: 150px;
-    display: block;
-    border: 1px;
-    border-color: white;
-}
-
-.dilemma {
- /* For modern browsers */
- /* For IE 6/7 (trigger hasLayout) */
- *zoom: 1;
- position: relative;
- opacity: 1; 
- width: 59%;
- overflow: auto;
 }
 
 .dilemma-action-buttons {
