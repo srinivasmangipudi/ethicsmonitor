@@ -101,16 +101,19 @@ body {
      width: 59%;
      overflow: auto;
     }
+    .landing-image {
+        width: 39%;
+    }
 }
 
 @media (max-width: 992px) {
    /* for devices < 992px width */
 
     .feedbox-wrapper {
-        width: 59%; 
+        width: 100%; 
     }
     .usercard-wrapper {
-        width: 59%; 
+        width: 100%; 
     }
     .dilemma {
      /* For modern browsers */
@@ -118,8 +121,13 @@ body {
      *zoom: 1;
      position: relative;
      opacity: 1; 
-     width: 59%;
+     width: 100%;
      overflow: auto;
+    }
+    .landing-image {
+        width: 100%;
+        height:auto;
+        text-align: center;
     }
 }
 .feedback-box {
