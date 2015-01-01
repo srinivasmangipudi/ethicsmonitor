@@ -47,7 +47,7 @@ if (Dilemmas.find().count() === 0)
 
 	Dilemmas.insert({
 	title: 'Ethical limits in documentary photography',
-	message: "Who is the predator?",
+	message: "Is this right? There are deep problems with consumption of this image.",
 	imageUrl: "https://s3.amazonaws.com/ethicsmonitor/TestUser/kc.jpg",
 	userId: testuser._id,
 	author: testuser.profile.name,
@@ -59,7 +59,7 @@ if (Dilemmas.find().count() === 0)
 
 	Dilemmas.insert({
 	title: 'Monkey selfie copyright issues!',
-	message: "If the monkey has clicked the selfie using photographer's camera and his created situation, is he not ethically entitled to the rights of the monetary benefits from that photo being used in social media, by all the corporations for monetary gain?",
+	message: "Should the photographer be entitled to copyright?",
 	imageUrl: "https://s3.amazonaws.com/ethicsmonitor/TestUser/MONKEY-SELFIE.jpg",
 	userId: testuser._id,
 	author: testuser.profile.name,
