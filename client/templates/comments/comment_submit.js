@@ -1,5 +1,9 @@
 Template.commentSubmit.created = function() {
 	Session.set('commentSubmitErrors', {});
+	Session.set('commentOpinion', null);
+	Session.set('commentInfoText', "What's your opinion?");
+	Session.set('commentBtnState', "Submit");
+	Session.set('myCommentId', '');
 };
 
 Template.commentSubmit.rendered = function() {
@@ -42,7 +46,7 @@ Template.commentSubmit.helpers({
 	myComment: function() {
 		var myComment = Comments.findOne({userId: Meteor.userId()});
 
-		if(typeof myComment !== "undefined") {
+		if(myComment) {
 			var opinion = myComment.opinion;
 
 			if(opinion === "yes")
@@ -60,7 +64,7 @@ Template.commentSubmit.helpers({
 			Session.set('commentInfoText', "What's your opinion?");
 			Session.set('commentBtnState', "Submit");
 			Session.set('myCommentId', '');
-
+			//Session.set('commentOpinion', null);
 			return '';
 		}
 			
