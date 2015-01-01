@@ -102,7 +102,7 @@ body {
      overflow: auto;
     }
     .landing-image {
-        width: 39%;
+        width: 59%;
     }
 }
 
@@ -113,7 +113,7 @@ body {
         width: 100%; 
     }
     .usercard-wrapper {
-        width: 100%; 
+        max-width: 100%; 
     }
     .dilemma {
      /* For modern browsers */
