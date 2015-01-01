@@ -12,7 +12,9 @@
 		    </div>
 			<div class="comments-comment">
 				<h4>
-					<span class="author">{{author}}</span>
+					<span class="author">
+						<a href="{{pathFor 'dilemmaUser' _id=userId}}">{{author}}</a>
+					</span>
 					<span class="date">on {{submittedText}}</span>
 				</h4>
 				<p>{{body}}</p>
