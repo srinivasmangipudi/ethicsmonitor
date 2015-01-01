@@ -1,5 +1,5 @@
 UI.registerHelper('siteUrl', function(id) {
-	return "http://tempethicsmonitor.meteor.com";
+	return "http://ethicsmonitor.org";
 });
 
 UI.registerHelper('pluralize', function(n, thing) {
