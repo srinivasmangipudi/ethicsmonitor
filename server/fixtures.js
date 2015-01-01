@@ -108,7 +108,7 @@ if (Dilemmas.find().count() === 0)
 
 	var lastId = Dilemmas.insert({
 	title: "Amanda and her cousin",
-	message: "This photo is ethically evaluative because it shows a chubby girl and smoking girl who are obviously young, in their swimsuits, which is ethically wrong. The looks on their faces also show how they are not very happy, proving that the situation is not ideal.",
+	message: "This photo is ethically evaluative because it shows a chubby girl and smoking girl who are obviously young, in their swimsuits, which is ethically problematic. The looks on their faces also show how they are not very happy, proving that the situation is not ideal.",
 	imageUrl: "https://s3.amazonaws.com/ethicsmonitor/TestUser/amanda-and-her-cousin-amy-valese-north-carolina-1990.jpg",
 	credits: "Mary Ellen Mark",
 	userId: testuser._id,
