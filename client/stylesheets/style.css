@@ -127,7 +127,7 @@ body {
     .landing-image {
         width: 100%;
         height:auto;
-        text-align: center;
+        text-align: -webkit-center;
     }
 }
 .feedback-box {
