@@ -11,12 +11,32 @@ Template.feedbackBox.helpers({
 			return false;
 		else
 			return true;
-	}
+	},
+	errorMessage: function(field) {
+		return Session.get('feedbackSubmitErrors')[field];
+	},
+	errorClass: function(field) {
+		return !!Session.get('feedbackSubmitErrors')[field] ? 'has-error' : '';
+	},
 });
 
 Template.feedbackBox.events({
 	'submit form': function(e, template) {
 		e.preventDefault();
+
+		var feedback = {
+			message: $(e.target).find('[name=feedback]').val(),
+			email: $(e.target).find('[name=email]').val(),
+		};
+
+		var errors = {};
+		if(!feedback.message)
+			errors.message = "Please fill in a message";
+		if(!feedback.email)
+			errors.email = "Please fill in your email";
+
+		if(errors.message || errors.email)
+			return Session.set('feedbackSubmitErrors', errors);
 
 		var user = Meteor.user();
 		var from = '';
@@ -55,6 +75,7 @@ Template.feedbackBox.events({
 	'click .newSuggestion':function(){
     	//console.log("new suggestion clicked");
     	Session.set('feedbackGiven', false);
+    	Session.set('feedbackSubmitErrors', {});
   },
 });
 

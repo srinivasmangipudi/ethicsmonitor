@@ -18,17 +18,18 @@
 					</div>
 				{{else}}
 					<form class="main form" style="background: aliceblue; -webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;">						
-						<div class="form-group" style="">
+						<div class="form-group {{errorClass 'message'}}" >
 							<label class="control-label" for="feedback"></label>
 							<div class="controls" >
 								<textarea name="feedback" id="feedback" type="text" value="" rows="5" placeholder="Would you have any suggestions (technical or creative) for improving the Ethics Monitor website, we'd like to hear from you. Please vote for any additional features / suggestions or submit your own ideas!" class="form-control" maxlength="255"></textarea>
-								<span class="help-block"></span>
+								<span class="help-block">{{errorMessage 'message'}}</span>
 							</div>
 						</div>	
 						{{#if showEmailBox}}
-							<div class="form-group">
+							<div class="form-group {{errorClass 'email'}}">
 								<div class="controls">
 									<input name="email" id="email" type="text" value="" placeholder="Please enter your email" class="form-control" maxlength="100"/>
+									<span class="help-block">{{errorMessage 'email'}}</span>
 								</div>
 							</div>
 						{{/if}}
