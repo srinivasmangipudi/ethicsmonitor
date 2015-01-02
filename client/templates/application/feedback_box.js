@@ -54,7 +54,7 @@ Template.feedbackBox.events({
 		{
 			var $email = $(e.target).find('[name=email]');
 			from = $email.val();
-			console.log(from);
+			//console.log(from);
 			user = "Not Logged User";
 		}
 			
