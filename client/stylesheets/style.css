@@ -80,7 +80,10 @@ body {
     border: 1px;
     border-color: white;
 }
-
+#iron-router-progress {
+    background-color : #33CCFF;
+    box-shadow       : 0 0 5px gray;
+}
 @media (min-width: 992px) {
    /* for devices > 992px width */
 
@@ -104,6 +107,9 @@ body {
     .landing-image {
         width: 59%;
     }
+    #iron-router-progress.spinner:before {
+    border-color : #33CCFF;
+}
 }
 
 @media (max-width: 992px) {
@@ -129,6 +135,9 @@ body {
         height:auto;
         text-align: -webkit-center;
     }
+    #iron-router-progress.spinner:before {
+    visibility: hidden;
+}
 }
 .feedback-box {
     width: 100%;
@@ -459,13 +468,4 @@ body {
  clear: both;
  margin-bottom: 5px;
  pointer-events: auto;
-}
-
-#iron-router-progress {
-    background-color : black;
-    box-shadow       : 0 0 5px gray;
-}
-
-#iron-router-progress.spinner:before {
-    border-color : black;
 }
