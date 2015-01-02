@@ -11,6 +11,15 @@ UI.registerHelper('pluralize', function(n, thing) {
 	}
 });
 
+UI.registerHelper('ccCleaner', function(cc) {
+	//fairly stupid pluralizer
+	if(cc) {
+		return cc;
+	} else if (cc === ''){
+		return 'unspecified';
+	}
+});
+
 UI.registerHelper('totalCommentsCount', function() {
 	return this.commentsYesCount + this.commentsNoCount;
 });
