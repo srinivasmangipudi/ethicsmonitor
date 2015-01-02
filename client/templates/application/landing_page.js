@@ -7,7 +7,11 @@ Template.landingPage.helpers({
 		return this.dbGems.lastImageDilemmaUrl;
 	},
 	lastDilemmaCredits: function() {
-		return this.dbGems.lastImageDilemmaCredits;
+		console.log(this.dbGems.lastImageDilemmaCredits);
+		var cc = this.dbGems.lastImageDilemmaCredits;
+		if(!cc || cc === '')
+			cc = 'unspecified';
+		return cc;
 	},
 });
 
