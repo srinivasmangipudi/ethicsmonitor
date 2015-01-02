@@ -1,3 +1,7 @@
+Template.feedbackBox.created = function() {
+	Session.set('feedbackSubmitErrors', {});
+};
+
 Template.feedbackBox.rendered = function() {
     Session.set('feedbackGiven', false);
 };
