@@ -1,7 +1,25 @@
 <template name="landingPage">
-	<div class="landing-image">
-		<p><img src={{lastDilemmaImage}} class="img-responsive" alt="Dilemma Image" ></p>
-		<p style="color: lightgrey;"><i>Credits: {{lastDilemmaCredits}}</i></p>
+
+	<div class="dilemma">
+		<div class="dilemma-content">
+			<div class="opinion-block">
+				<div class='glyph-yes'><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>				
+				<span class="opinion-summary-yes">Agree?</span>
+				&nbsp;
+				<div class='glyph-no'><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
+				<span class="opinion-summary-no">Disagree?</span>
+			</div>
+
+				<p><img src={{lastDilemmaImage}} class="img-responsive" alt="Dilemma Image" ></p>
+				<p style="color: lightgrey;"><i>Credits: {{lastDilemmaCredits}}</i></p>
+
+			<div>
+				<h4>{{lastDilemmaTitle}}</h4>
+			</div>
+		</div>
+	</div>
+	<div>
+		<p style="color: #33CCFF;"><i>Please Sign In/Up to add your opinion about ethics!</i></p>
 	</div>
 
 </template>
