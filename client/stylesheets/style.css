@@ -200,6 +200,16 @@ body {
 	background-color: aliceblue;
 }
 
+.dilemma-list-image {
+    max-height: 435px;
+    max-width: 100%; 
+    height:auto;  
+}
+.dilemma-detail-image {
+    max-height: 600px;
+    max-width: 100%; 
+    height:auto;  
+}
  .dilemma:before, .dilemma:after {
  content: "";
  display: table; }
