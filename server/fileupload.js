@@ -15,7 +15,10 @@ Slingshot.createDirective("myFileUploads", Slingshot.S3Storage, {
   },
 
   key: function (file) {
-    //Store file into a directory by the user's username.
+    // better to save by id instead of username 
+    return this.userId + "/" + file.name;
+    
+    /*//Store file into a directory by the user's username.
     var user = Meteor.users.findOne(this.userId);
     var username = '';
     if(user && user.profile && user.profile.name)
@@ -25,6 +28,6 @@ Slingshot.createDirective("myFileUploads", Slingshot.S3Storage, {
     else
       username = user.username;
     
-    return username + "/" + file.name;
+    return username + "/" + file.name;*/
   }
 });
