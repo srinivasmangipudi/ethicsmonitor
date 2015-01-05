@@ -125,6 +125,7 @@ if (Dilemmas.find().count() === 0)
 	DbGems.insert({
 		lastImageDilemmaId: lastId,
 		lastImageDilemmaUrl: lastImageDilemma.imageUrl,
+		lastImageDilemmaTitle: lastImageDilemma.title,
 		lastImageDilemmaCredits: lastImageDilemma.credits,
 		lastImageDilemmaCommentsYesCount: lastImageDilemma.commentsYesCount,
 		lastImageDilemmaCommentsNoCount: lastImageDilemma.commentsNoCount,
