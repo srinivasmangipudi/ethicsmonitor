@@ -2,6 +2,10 @@ UI.registerHelper('siteUrl', function(id) {
 	return "http://ethicsmonitor.org";
 });
 
+UI.registerHelper('randomLogo', function(n, thing) {
+	return "/images/em" + Math.floor((Math.random() * 3) + 1) + ".png";
+});
+
 UI.registerHelper('pluralize', function(n, thing) {
 	//fairly stupid pluralizer
 	if(n == 1) {
