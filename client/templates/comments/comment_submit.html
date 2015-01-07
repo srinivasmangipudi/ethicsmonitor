@@ -1,6 +1,6 @@
 <template name="commentSubmit">
   <form name="comment" class="comment-form form" style="background:rgb(248, 248, 248);">
-    <div class="form-group {{errorClass 'body'}}">
+    <div class="form-group {{errorClass 'vote'}}">
         <div class="controls">
 
             <a href='#' class="opinion opinion-yes btn {{opinionYesClass}}" role="button">
@@ -10,6 +10,11 @@
             <a href='#' class="opinion opinion-no btn {{opinionNoClass}}" role="button">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true" style="vertical-align: text-top;"></span>  Disagree
             </a>
+            <span class="help-block">{{errorMessage 'vote'}}</span>
+        </div>
+    </div>
+    <div class="form-group {{errorClass 'body'}}">
+        <div class="controls">
 
             <label for="body">{{commentInfoText}}</label>
             <textarea name="body" id="body" class="form-control" rows="3" maxlength="255">{{myComment}}</textarea>

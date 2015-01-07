@@ -94,13 +94,13 @@ Template.commentSubmit.events({
 		};
 
 		var errors = {};
-		if(! comment.body) {
-			errors.body = "Please write some content";
+		if(! comment.opinion) {
+			errors.vote = "Please select 'Agree' or 'Disagree'";
 			return Session.set('commentSubmitErrors', errors);
 		}
-
-		if(typeof comment.opinion == 'undefined') {
-			errors.body = "Please select 'Yes' or 'No'";
+		
+		if(! comment.body) {
+			errors.body = "Please explain your decision in brief";
 			return Session.set('commentSubmitErrors', errors);
 		}
 
