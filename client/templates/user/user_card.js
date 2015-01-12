@@ -21,6 +21,10 @@ Template.userCard.helpers({
 		{
 			return "http://twitter.com/" + user.services.twitter.screenName;
 		}
+		else if(user && user.services && user.services.google)
+		{
+			return "http://plus.google.com/" + user.services.google.id;
+		}
 		else
 			return false;
 	}
