@@ -28,3 +28,6 @@ reywood:publish-composite
 meteorhacks:fast-render
 fortawesome:fontawesome
 houston:admin
+mrt:cron
+http
+gfk:mailgun-api
