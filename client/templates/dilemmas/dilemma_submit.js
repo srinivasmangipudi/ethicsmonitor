@@ -39,6 +39,18 @@ Template.dilemmaSubmit.rendered = function() {
       validate: true,
       placement: 'bottom'
     });
+
+    $('#tags').selectize({
+    delimiter: ',',
+    persist: false,
+	maxItems: 3,
+    create: function(input) {
+        return {
+            value: input,
+            text: input
+        	}
+    	}
+	});
 };
 
 Template.dilemmaSubmit.helpers({
@@ -62,14 +74,18 @@ Template.dilemmaSubmit.events({
 	'submit form': function(e) {
 		e.preventDefault();
 
+		//var something = $(e.target).find('[name=input-tags]').val();
+		//console.log(something);
+
 		var dilemma = {
 			title: $(e.target).find('[name=title]').val(),
 			message: $(e.target).find('[name=message]').val(),
 			credits: $(e.target).find('[name=credits]').val(),
+			tags: $(e.target).find('[name=tags]').val(),
 		};
 
 		var errors = validateDilemma(dilemma);
-		if(errors.title || errors.message || errors.dilemmaImageInput)
+		if(errors.title || errors.message || errors.dilemmaImageInput || errors.tags)
 			return Session.set('dilemmaSubmitErrors', errors);
 
 		var imgUpload = document.getElementById('dilemmaImageInput').files[0];

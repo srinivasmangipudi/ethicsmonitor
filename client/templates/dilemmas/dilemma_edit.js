@@ -39,6 +39,18 @@ Template.dilemmaEdit.rendered = function() {
       validate: true,
       placement: 'bottom'
     });
+
+    $('#tags').selectize({
+    delimiter: ',',
+    persist: false,
+	maxItems: 3,
+    create: function(input) {
+        return {
+            value: input,
+            text: input
+        	}
+    	}
+	});
 };
 
 Template.dilemmaEdit.helpers({
@@ -50,7 +62,10 @@ Template.dilemmaEdit.helpers({
 	},
 	isUploaded: function() {
 		return Session.get("isUploaded");
-	}
+	},
+	/*tags: function() {
+		return tags;
+	}*/
 });
 
 Template.dilemmaEdit.events({
@@ -58,19 +73,42 @@ Template.dilemmaEdit.events({
 		e.preventDefault();
 
 		var currentDilemmaId = this._id;
+		//console.log(this);
 
 		var dilemmaProperties = {
 			title: $(e.target).find('[name=title]').val(),
 			message: $(e.target).find('[name=message]').val(),
 			credits: $(e.target).find('[name=credits]').val(),
+			tags: $(e.target).find('[name=tags]').val().split(","),
 		};
 
 		var errors = validateDilemma(dilemmaProperties);
-		if(errors.title || errors.message || errors.dilemmaImageInput)
+		if(errors.title || errors.message || errors.dilemmaImageInput || errors.tags)
 			return Session.set('dilemmaEditErrors', errors);
 
-		var imgUpload = document.getElementById('dilemmaImageInput').files[0];
+		var oldTags = this.tags;
+		//console.log("oldTags:"); console.log(oldTags);
 
+		//update the tag counters
+		oldTags.forEach(function(tag) {
+    		//console.log(tag);
+    		removeTag(tag);
+		});
+
+		var newTags = $(e.target).find('[name=tags]').val().split(",");
+		//console.log("newTags:"); console.log(newTags);
+
+		//update the tag counters
+		newTags.forEach(function(tag) {
+    		//console.log(tag);
+			Meteor.call('updateTag', tag, function(error, result)
+			{
+				if(error)
+					return throwError(error.reason);
+			});
+		});
+
+		var imgUpload = document.getElementById('dilemmaImageInput').files[0];
 		if(imgUpload)
 		{
 			Session.set("isUploaded", false);
@@ -94,6 +132,7 @@ Template.dilemmaEdit.events({
 				dilemmaProperties = _.extend(dilemmaProperties, {
 					imageUrl: downloadUrl
 				});
+
 
 				Dilemmas.update(currentDilemmaId, {$set: dilemmaProperties}, function(error) {
 					if(error) {

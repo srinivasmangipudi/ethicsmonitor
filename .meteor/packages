@@ -31,3 +31,4 @@ houston:admin
 mrt:cron
 http
 gfk:mailgun-api
+jeremy:selectize
