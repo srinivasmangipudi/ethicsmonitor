@@ -40,6 +40,12 @@
 				<span class="opinion-summary-no">{{commentsNoCount}}</span>
 			</p>
 			
+			<p>
+				{{#each tags}}
+					<a href="{{pathFor 'taggedDilemmas' tagName=this}}" class="btn btn-info" style="background-color: #C7EBF5;">{{.}}</a>
+				{{/each}}
+
+			</p>
 			<a href="https://www.facebook.com/sharer/sharer.php?u={{siteUrl}}{{pathFor 'dilemmaPage'}}" target="_blank">
   				<img src="/images/fshare.png" style="width: 73px; height:27px" alt="Share on Facebook">
 			</a>

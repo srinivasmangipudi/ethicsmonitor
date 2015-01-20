@@ -32,6 +32,9 @@ Template.dilemmaItemDetail.helpers({
 	commentsNoCount: function() {
 		return this.dilemma ? this.dilemma.commentsNoCount : '';
 	},
+	tags: function() {
+		return this.dilemma ? this.dilemma.tags : '';
+	},
 
 	totalCommentsCount: function() {
 		return this.dilemma ? (this.dilemma.commentsYesCount + this.dilemma.commentsNoCount) : 0;

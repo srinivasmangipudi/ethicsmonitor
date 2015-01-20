@@ -60,6 +60,15 @@ Meteor.publish('dilemmas', function(options) {
 	return Dilemmas.find({}, options);
 });
 
+Meteor.publish('taggedDilemmas', function(tag, options) {
+	check(tag, String);
+	check(options, {
+		sort: Object,
+		limit: Number
+	});
+	return Dilemmas.find({tags:{$in: [tag]}}, options);
+});
+
 Meteor.publish('singleDilemma', function(id) {
 	check(id, String);
 	return Dilemmas.find(id);

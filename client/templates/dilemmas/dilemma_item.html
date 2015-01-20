@@ -30,6 +30,11 @@
 		</div>
 
 		<div class="dilemma-action-buttons">
+			{{#each tags}}
+				<a href="{{pathFor 'taggedDilemmas' tagName=this}}" class="tag btn btn-info" style="float:left; margin-top:7px; margin-right:2px; background-color: #C7EBF5;">{{.}}</a>
+			{{/each}}
+			 
+
 			<a href="{{pathFor 'dilemmaPage'}}" class="discuss btn btn-default">DECIDE</a>
 
 			{{#if ownDilemma}}
