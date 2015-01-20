@@ -60,11 +60,6 @@ Template.dilemmaSubmit.helpers({
 	errorClass: function(field) {
 		return !!Session.get('dilemmaSubmitErrors')[field] ? 'has-error' : '';
 	},
-	/*uploader: function() {
-		console.log("uploader called");
-		console.log(Session.get("uploader"));
-		return Session.get("uploader");
-	},*/
 	isUploaded: function() {
 		return Session.get("isUploaded");
 	}
@@ -82,10 +77,11 @@ Template.dilemmaSubmit.events({
 			message: $(e.target).find('[name=message]').val(),
 			credits: $(e.target).find('[name=credits]').val(),
 			tags: $(e.target).find('[name=tags]').val(),
+			imageUrl: document.getElementById('dilemmaImageInput').files[0],
 		};
 
 		var errors = validateDilemma(dilemma);
-		if(errors.title || errors.message || errors.dilemmaImageInput || errors.tags)
+		if(errors.title || errors.message || errors.dilemmaImageInput || errors.tags || errors.imageUrl)
 			return Session.set('dilemmaSubmitErrors', errors);
 
 		var imgUpload = document.getElementById('dilemmaImageInput').files[0];
@@ -96,8 +92,6 @@ Template.dilemmaSubmit.events({
 
 			//use slingshot to upload the file first
 			var uploader = new Slingshot.Upload("myFileUploads");
-			//Session.set('uploader', uploader);
-			//console.log(uploader);
 
 			uploader.send(imgUpload, function (error, downloadUrl) 
 			{
@@ -121,7 +115,6 @@ Template.dilemmaSubmit.events({
 					if(error)
 						return throwError(error.reason);
 
-					//var dilemmaProperties = dilemma
 					// if everything went well, store a snapshot of this dilemma in dbGems object
 					Meteor.call('dbgemsLastImageDilemmaUpdate', dilemma, function(error, dbgemid) {
 						if(error)
@@ -133,7 +126,7 @@ Template.dilemmaSubmit.events({
 				});
 			});
 		}
-		else
+		/*else
 		{
 			dilemma = _.extend(dilemma, {
 						imageUrl: ""
@@ -146,6 +139,6 @@ Template.dilemmaSubmit.events({
 
 				Router.go('dilemmaPage', {_id: result._id});
 			});
-		}
+		}*/
 	}
 });
