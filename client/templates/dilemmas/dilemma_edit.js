@@ -46,8 +46,8 @@ Template.dilemmaEdit.rendered = function() {
 	maxItems: 3,
     create: function(input) {
         return {
-            value: input,
-            text: input
+            value: input.toLowerCase(),
+            text: input.toLowerCase()
         	}
     	}
 	});
@@ -74,33 +74,31 @@ Template.dilemmaEdit.events({
 
 		var currentDilemmaId = this._id;
 		//console.log(this);
+		//console.log($(e.target).find('[name=tags]').val().toLowerCase().split(","));
+		var inputTags = $(e.target).find('[name=tags]').val();
 
 		var dilemmaProperties = {
 			title: $(e.target).find('[name=title]').val(),
 			message: $(e.target).find('[name=message]').val(),
 			credits: $(e.target).find('[name=credits]').val(),
-			tags: $(e.target).find('[name=tags]').val().split(","),
+			tags: inputTags,
 		};
 
 		var errors = validateDilemma(dilemmaProperties);
 		if(errors.title || errors.message || errors.dilemmaImageInput || errors.tags)
 			return Session.set('dilemmaEditErrors', errors);
 
-		var oldTags = this.tags;
-		//console.log("oldTags:"); console.log(oldTags);
+		//split the tags by seperators into array for saving
+		dilemmaProperties.tags = inputTags.split(",");
 
 		//update the tag counters
+		var oldTags = this.tags;
 		oldTags.forEach(function(tag) {
-    		//console.log(tag);
-    		removeTag(tag);
+			removeTag(tag);
 		});
 
-		var newTags = $(e.target).find('[name=tags]').val().split(",");
-		//console.log("newTags:"); console.log(newTags);
-
 		//update the tag counters
-		newTags.forEach(function(tag) {
-    		//console.log(tag);
+		dilemmaProperties.tags.forEach(function(tag) {
 			Meteor.call('updateTag', tag, function(error, result)
 			{
 				if(error)
@@ -116,7 +114,7 @@ Template.dilemmaEdit.events({
 			//use slingshot to upload the file first
 			var uploader = new Slingshot.Upload("myFileUploads");
 
-			uploader.send(imgUpload, function (error, downloadUrl) 
+			uploader.send(imgUpload, function (error, downloadUrl)
 			{
 				//console.log("downloadURL:" + downloadUrl);
 
@@ -132,7 +130,6 @@ Template.dilemmaEdit.events({
 				dilemmaProperties = _.extend(dilemmaProperties, {
 					imageUrl: downloadUrl
 				});
-
 
 				Dilemmas.update(currentDilemmaId, {$set: dilemmaProperties}, function(error) {
 					if(error) {

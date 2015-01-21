@@ -46,8 +46,8 @@ Template.dilemmaSubmit.rendered = function() {
 	maxItems: 3,
     create: function(input) {
         return {
-            value: input,
-            text: input
+            value: input.toLowerCase(),
+            text: input.toLowerCase()
         	}
     	}
 	});
