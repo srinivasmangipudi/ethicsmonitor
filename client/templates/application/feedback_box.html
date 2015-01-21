@@ -1,6 +1,14 @@
 <template name="feedbackBox">
 	<div class="feedback-box">
 		<div class="feedback-box-content">
+			{{#if customPage}}
+			{{else}}
+				<div class="custom-banner">
+					Festival Collaboration:
+					<a href="{{pathFor 'taggedDilemmas' tagName='goaphoto'}}"><img src="https://s3.amazonaws.com/ethicsmonitor/siteimages/goaphoto.png" alt="Banner" class="img-responsive" style="margin: auto;"></a>
+				</div>		
+			{{/if}}
+
 			<div>
 				Feedback & Suggestions
 			</div>

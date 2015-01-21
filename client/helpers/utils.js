@@ -1,3 +1,11 @@
+UI.registerHelper('customPage', function(id) {
+	var controller = Router.current();
+	if(controller.params.tagName && controller.params.tagName.toLowerCase() === 'goaphoto')
+		return 'https://s3.amazonaws.com/ethicsmonitor/siteimages/goaphoto.png';
+	else
+		return false;
+});
+
 UI.registerHelper('siteUrl', function(id) {
 	return "http://ethicsmonitor.org";
 });
