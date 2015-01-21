@@ -1,5 +1,10 @@
 <template name="dilemmasList">
-	
+	{{#if customPage}}
+		<div class="custom-banner">
+			<a href="http://www.goaphoto.in/" target="_blank"><img src={{customPage}} alt="Banner" class="img-responsive" style="margin: auto;"></a>
+		</div>
+	{{/if}}
+
 	<div class="feedbox-wrapper">
 		{{> feedbackBox}}
 	</div>

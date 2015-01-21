@@ -53,11 +53,22 @@ body {
     clear: both;
 }
 
+.custom-banner {
+    margin-bottom: 20px;
+}
+
 #spinner {
  height: 300px; }
 
 .btn-info {
 	color: rgb(79, 80, 94);
+}
+
+.tag {
+    float:left; 
+    margin-top:7px; 
+    margin-right:2px; 
+    background-color: #C7EBF5;
 }
 
 .small-profile-pic{
