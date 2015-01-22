@@ -31,6 +31,14 @@ body {
  -o-border-radius: 0px 0px 3px 3px;
  border-radius: 0px 0px 3px 3px; }
 
+.wordwrap { 
+   white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;      /* IE */
+}
+
 .page-wrap {
   min-height: 100%;
   /* equal to footer height */
@@ -250,11 +258,14 @@ body {
  float: left; }
 
  .dilemma .dilemma-content {
- float: left; }
+ float: left; 
+ word-break: break-all;
+}
 
 .dilemma .dilemma-detail-content {
  text-align: center; 
  clear: both;
+ word-break: break-all;
 }
 
 .dilemma .dilemma-detail-content h3 {
