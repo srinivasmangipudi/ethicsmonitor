@@ -1,7 +1,7 @@
 <template name="dilemmaEdit">
 	<form class="main form">
 		<div class="form-group {{errorClass 'imageUrl'}}">
-			<p><img src={{imageUrl}} alt="Dilemma Image" style="max-width: 100%; height:auto;"></p>
+			<p><img src={{imageUrl}} alt="Dilemma Image" style="max-width: 100%; height:auto; max-height: 600px;"></p>
     		<label for="dilemmaImageInput">Upload image</label>
     		<input type="file" id="dilemmaImageInput">
     		<p class="help-block">Max allowed image size is 1.2 Mb</p>
