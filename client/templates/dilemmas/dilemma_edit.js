@@ -92,10 +92,13 @@ Template.dilemmaEdit.events({
 		dilemmaProperties.tags = inputTags.split(",");
 
 		//update the tag counters
-		var oldTags = this.tags;
-		oldTags.forEach(function(tag) {
-			removeTag(tag);
-		});
+		if(this.tags)
+		{
+			var oldTags = this.tags;
+			oldTags.forEach(function(tag) {
+				removeTag(tag);
+			});			
+		}
 
 		//update the tag counters
 		dilemmaProperties.tags.forEach(function(tag) {
