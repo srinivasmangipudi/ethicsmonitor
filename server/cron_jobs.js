@@ -87,6 +87,6 @@ var cron = new Meteor.Cron( {
   events:{
   //  "* * * * *"  : world,
   //"43 14 * * 2"  : testNewsletter,
-   //"26 14 * * 2"  : weeklyNewsletter,    
+  //"10 10 * * 4"  : weeklyNewsletter,    
   }
 });
