@@ -81,7 +81,7 @@ Template.dilemmaSubmit.events({
 		};
 
 		var errors = validateDilemma(dilemma);
-		if(errors.title || errors.message || errors.dilemmaImageInput || errors.tags || errors.imageUrl)
+		if(errors.title || errors.message || errors.dilemmaImageInput || errors.tags || errors.imageUrl || errors.credits)
 			return Session.set('dilemmaSubmitErrors', errors);
 
 		var imgUpload = document.getElementById('dilemmaImageInput').files[0];
