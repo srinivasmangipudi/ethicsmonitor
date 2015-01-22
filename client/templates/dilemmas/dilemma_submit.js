@@ -80,8 +80,8 @@ Template.dilemmaSubmit.events({
 			imageUrl: document.getElementById('dilemmaImageInput').files[0],
 		};
 
-		var errors = validateDilemma(dilemma);
-		if(errors.title || errors.message || errors.dilemmaImageInput || errors.tags || errors.imageUrl || errors.credits)
+		var errors = validateDilemma(dilemma, true);
+		if(errors.title || errors.message || errors.tags || errors.imageUrl || errors.credits)
 			return Session.set('dilemmaSubmitErrors', errors);
 
 		var imgUpload = document.getElementById('dilemmaImageInput').files[0];

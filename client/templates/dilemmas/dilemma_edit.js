@@ -84,8 +84,8 @@ Template.dilemmaEdit.events({
 			tags: inputTags,
 		};
 
-		var errors = validateDilemma(dilemmaProperties);
-		if(errors.title || errors.message || errors.dilemmaImageInput || errors.tags)
+		var errors = validateDilemma(dilemmaProperties, false);
+		if(errors.title || errors.message || errors.tags || errors.credits)
 			return Session.set('dilemmaEditErrors', errors);
 
 		//split the tags by seperators into array for saving
