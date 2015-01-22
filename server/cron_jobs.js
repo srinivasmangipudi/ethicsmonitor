@@ -14,10 +14,12 @@ var testNewsletter = function() {
 
   var bigDilemma = bigCursor.fetch()[0];
   var newDilemma = newCursor.fetch()[0];
-  //console.log(dCursor.fetch()[0]);
+  console.log(bigDilemma);
+  console.log(newDilemma);
+  
     
   //var htmlMsg = '<html><head></head><body><img style="max-width:600px;" src="https://s3.amazonaws.com/ethicsmonitor/siteimages/header.jpg" alt="EthicsMonitor"><p><img src='+ bigDilemma.imageUrl +' alt="Dilemma Image"></p><p><b>This weeks Big Dilemma:</b>'+ bigDilemma.title +'</p><p><b>This weeks New Dilemma:</b>'+ newDilemma.title +'</p><p><img src='+ newDilemma.imageUrl +' alt="Dilemma Image"></p></body></html>';
-  var htmlMsg = '<html><head></head><body><a href="http://ethicsmonitor.org"><img style="max-width:480px;" src="https://s3.amazonaws.com/ethicsmonitor/siteimages/header.jpg" alt="EthicsMonitor"></a><p><a href="http://ethicsmonitor.org/dilemma/detail/'+ bigDilemma._id +'"><img style="max-width:350px;" src="' + bigDilemma.imageUrl + '" alt="Dilemma Image"></a></p><p><b>Big Dilemma this week: </b>endless landscapes</p><br><p><a href="http://ethicsmonitor.org/dilemma/detail/'+ newDilemma._id +'"><img style="max-width:350px;" src="'+ newDilemma.imageUrl +'" alt="Dilemma Image"></a></p><p><b>New Dilemma this week: </b>endless landscapes</p><br><p style="color:lightgrey;max-width:480px;">Copyright 2015. Goa Center for Alternative Photography, All rights reserved. You are receiving this email because either you subscribed on our website or registered for an event. If you find yourself added without your knowledge you can safely unsubscribe.<p><p style="color:lightgrey;max-width:480px;">Our mailing address is: Goa Center for Alternative Photography, Vasco Da Gama, Goa 403726, India</p><p style="color:lightgrey;max-width:480px;"><a href="%mailing_list_unsubscribe_url%">Unsubscribe from this list.</a></p></body></html>';
+  var htmlMsg = '<html><head></head><body><a href="http://ethicsmonitor.org"><img style="max-width:480px;" src="https://s3.amazonaws.com/ethicsmonitor/siteimages/header.jpg" alt="EthicsMonitor"></a><p><a href="http://ethicsmonitor.org/dilemma/detail/'+ bigDilemma._id +'"><img style="max-width:350px;" src="' + bigDilemma.imageUrl + '" alt="Dilemma Image"></a></p><p><b>Big Dilemma this week: </b>'+ bigDilemma.title +'</p><br><p><a href="http://ethicsmonitor.org/dilemma/detail/'+ newDilemma._id +'"><img style="max-width:350px;" src="'+ newDilemma.imageUrl +'" alt="Dilemma Image"></a></p><p><b>New Dilemma this week: </b>'+ newDilemma.title +'</p><br><p style="color:lightgrey;max-width:480px;">Copyright 2015. Goa Center for Alternative Photography, All rights reserved. You are receiving this email because either you subscribed on our website or registered for an event. If you find yourself added without your knowledge you can safely unsubscribe.<p><p style="color:lightgrey;max-width:480px;">Our mailing address is: Goa Center for Alternative Photography, Vasco Da Gama, Goa 403726, India</p><p style="color:lightgrey;max-width:480px;"><a href="%mailing_list_unsubscribe_url%">Unsubscribe from this list.</a></p></body></html>';
   //console.log(htmlMsg);
 
   var MailgunServer = new Mailgun(options);
@@ -33,7 +35,7 @@ var testNewsletter = function() {
                                      'tags'
                                  ]
                              });
-//console.log("sent one newsletter");
+  console.log("sent test newsletter");
 }
 
 var weeklyNewsletter = function() {
@@ -49,7 +51,7 @@ var weeklyNewsletter = function() {
   var bigDilemma = bigCursor.fetch()[0];
   var newDilemma = newCursor.fetch()[0];
     
-  var htmlMsg = '<html><head></head><body><a href="http://ethicsmonitor.org"><img style="max-width:480px;" src="https://s3.amazonaws.com/ethicsmonitor/siteimages/header.jpg" alt="EthicsMonitor"></a><p><a href="http://ethicsmonitor.org/dilemma/detail/'+ bigDilemma._id +'"><img style="max-width:350px;" src="' + bigDilemma.imageUrl + '" alt="Dilemma Image"></a></p><p><b>Big Dilemma this week: </b>endless landscapes</p><br><p><a href="http://ethicsmonitor.org/dilemma/detail/'+ newDilemma._id +'"><img style="max-width:350px;" src="'+ newDilemma.imageUrl +'" alt="Dilemma Image"></a></p><p><b>New Dilemma this week: </b>endless landscapes</p><br><p style="color:lightgrey;max-width:480px;">Copyright 2015. Goa Center for Alternative Photography, All rights reserved. You are receiving this email because either you subscribed on our website or registered for an event. If you find yourself added without your knowledge you can safely unsubscribe.<p><p style="color:lightgrey;max-width:480px;">Our mailing address is: Goa Center for Alternative Photography, Vasco Da Gama, Goa 403726, India</p><p style="color:lightgrey;max-width:480px;"><a href="%mailing_list_unsubscribe_url%">Unsubscribe from this list.</a></p></body></html>';
+  var htmlMsg = '<html><head></head><body><a href="http://ethicsmonitor.org"><img style="max-width:480px;" src="https://s3.amazonaws.com/ethicsmonitor/siteimages/header.jpg" alt="EthicsMonitor"></a><p><a href="http://ethicsmonitor.org/dilemma/detail/'+ bigDilemma._id +'"><img style="max-width:350px;" src="' + bigDilemma.imageUrl + '" alt="Dilemma Image"></a></p><p><b>Big Dilemma this week: </b>'+ bigDilemma.title +'</p><br><p><a href="http://ethicsmonitor.org/dilemma/detail/'+ newDilemma._id +'"><img style="max-width:350px;" src="'+ newDilemma.imageUrl +'" alt="Dilemma Image"></a></p><p><b>New Dilemma this week: </b>'+ newDilemma.title +'</p><br><p style="color:lightgrey;max-width:480px;">Copyright 2015. Goa Center for Alternative Photography, All rights reserved. You are receiving this email because either you subscribed on our website or registered for an event. If you find yourself added without your knowledge you can safely unsubscribe.<p><p style="color:lightgrey;max-width:480px;">Our mailing address is: Goa Center for Alternative Photography, Vasco Da Gama, Goa 403726, India</p><p style="color:lightgrey;max-width:480px;"><a href="%mailing_list_unsubscribe_url%">Unsubscribe from this list.</a></p></body></html>';
 
   var MailgunServer = new Mailgun(options);
   MailgunServer.send({
@@ -84,7 +86,7 @@ Run once an hour, ie. "0 * * * *".
 var cron = new Meteor.Cron( {
   events:{
   //  "* * * * *"  : world,
-  //  "0 0 * * 7"  : testNewsletter,
-    "0 0 * * 7"  : weeklyNewsletter,    
+  //"43 14 * * 2"  : testNewsletter,
+   //"26 14 * * 2"  : weeklyNewsletter,    
   }
 });
