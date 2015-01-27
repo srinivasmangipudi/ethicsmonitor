@@ -126,7 +126,7 @@ Template.dilemmaEdit.events({
 					//console.log(error);
 					Session.set("isUploaded", true);
 					var errors = {};
-					errors.dilemmaImageInput = error.reason;
+					errors.imageUrl = error.reason;
 					return Session.set('dilemmaEditErrors', errors);
 				}
 

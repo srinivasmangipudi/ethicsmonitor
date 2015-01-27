@@ -102,7 +102,7 @@ Template.dilemmaSubmit.events({
 					Session.set("isUploaded", true);
 					//console.log(error);
 					var errors = {};
-					errors.dilemmaImageInput = error.reason;
+					errors.imageUrl = error.reason;
 					return Session.set('dilemmaSubmitErrors', errors);
 				}
 
